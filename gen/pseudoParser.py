@@ -1,4 +1,4 @@
-# Generated from /Users/cyruslinden/PycharmProjects/NEA/pseudo.g4 by ANTLR 4.9.2
+# Generated from pseudo.g4 by ANTLR 4.9.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -12,7 +12,7 @@ else:
 def serializedATN():
     with StringIO() as buf:
         buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\38")
-        buf.write("\u0111\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\u0113\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
         buf.write("\4\24\t\24\3\2\7\2*\n\2\f\2\16\2-\13\2\3\3\3\3\3\3\3\3")
@@ -35,25 +35,25 @@ def serializedATN():
         buf.write("\n\23\3\23\3\23\5\23\u00d9\n\23\3\23\3\23\3\23\3\24\3")
         buf.write("\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\5\24\u00e7\n\24")
         buf.write("\3\24\3\24\7\24\u00eb\n\24\f\24\16\24\u00ee\13\24\3\24")
-        buf.write("\3\24\3\24\3\24\3\24\3\24\5\24\u00f6\n\24\3\24\3\24\3")
+        buf.write("\3\24\3\24\3\24\3\24\3\24\3\24\3\24\5\24\u00f8\n\24\3")
         buf.write("\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24")
-        buf.write("\3\24\3\24\3\24\3\24\3\24\3\24\3\24\7\24\u010c\n\24\f")
-        buf.write("\24\16\24\u010f\13\24\3\24\2\3&\25\2\4\6\b\n\f\16\20\22")
-        buf.write("\24\26\30\32\34\36 \"$&\2\7\3\2\35\36\3\2\37\"\4\2\36")
-        buf.write("\36##\3\2$)\3\2*+\2\u012b\2+\3\2\2\2\48\3\2\2\2\6:\3\2")
-        buf.write("\2\2\bD\3\2\2\2\nN\3\2\2\2\f`\3\2\2\2\16l\3\2\2\2\20w")
-        buf.write("\3\2\2\2\22\u0081\3\2\2\2\24\u0085\3\2\2\2\26\u0090\3")
-        buf.write("\2\2\2\30\u0099\3\2\2\2\32\u009b\3\2\2\2\34\u00b5\3\2")
-        buf.write("\2\2\36\u00b7\3\2\2\2 \u00ba\3\2\2\2\"\u00c8\3\2\2\2$")
-        buf.write("\u00d4\3\2\2\2&\u00f5\3\2\2\2(*\5\4\3\2)(\3\2\2\2*-\3")
-        buf.write("\2\2\2+)\3\2\2\2+,\3\2\2\2,\3\3\2\2\2-+\3\2\2\2.9\5\20")
-        buf.write("\t\2/9\5\6\4\2\609\5\b\5\2\619\5\n\6\2\629\5\f\7\2\63")
-        buf.write("9\5\16\b\2\649\5\24\13\2\659\5\26\f\2\669\5\32\16\2\67")
-        buf.write("9\5\34\17\28.\3\2\2\28/\3\2\2\28\60\3\2\2\28\61\3\2\2")
-        buf.write("\28\62\3\2\2\28\63\3\2\2\28\64\3\2\2\28\65\3\2\2\28\66")
-        buf.write("\3\2\2\28\67\3\2\2\29\5\3\2\2\2:>\7\3\2\2;=\5\4\3\2<;")
-        buf.write("\3\2\2\2=@\3\2\2\2><\3\2\2\2>?\3\2\2\2?A\3\2\2\2@>\3\2")
-        buf.write("\2\2AB\7\4\2\2BC\5&\24\2C\7\3\2\2\2DE\7\5\2\2EI\5&\24")
+        buf.write("\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\7\24\u010e")
+        buf.write("\n\24\f\24\16\24\u0111\13\24\3\24\2\3&\25\2\4\6\b\n\f")
+        buf.write("\16\20\22\24\26\30\32\34\36 \"$&\2\7\3\2\35\36\3\2\37")
+        buf.write("\"\4\2\36\36##\3\2$)\3\2*+\2\u012f\2+\3\2\2\2\48\3\2\2")
+        buf.write("\2\6:\3\2\2\2\bD\3\2\2\2\nN\3\2\2\2\f`\3\2\2\2\16l\3\2")
+        buf.write("\2\2\20w\3\2\2\2\22\u0081\3\2\2\2\24\u0085\3\2\2\2\26")
+        buf.write("\u0090\3\2\2\2\30\u0099\3\2\2\2\32\u009b\3\2\2\2\34\u00b5")
+        buf.write("\3\2\2\2\36\u00b7\3\2\2\2 \u00ba\3\2\2\2\"\u00c8\3\2\2")
+        buf.write("\2$\u00d4\3\2\2\2&\u00f7\3\2\2\2(*\5\4\3\2)(\3\2\2\2*")
+        buf.write("-\3\2\2\2+)\3\2\2\2+,\3\2\2\2,\3\3\2\2\2-+\3\2\2\2.9\5")
+        buf.write("\20\t\2/9\5\6\4\2\609\5\b\5\2\619\5\n\6\2\629\5\f\7\2")
+        buf.write("\639\5\16\b\2\649\5\24\13\2\659\5\26\f\2\669\5\32\16\2")
+        buf.write("\679\5\34\17\28.\3\2\2\28/\3\2\2\28\60\3\2\2\28\61\3\2")
+        buf.write("\2\28\62\3\2\2\28\63\3\2\2\28\64\3\2\2\28\65\3\2\2\28")
+        buf.write("\66\3\2\2\28\67\3\2\2\29\5\3\2\2\2:>\7\3\2\2;=\5\4\3\2")
+        buf.write("<;\3\2\2\2=@\3\2\2\2><\3\2\2\2>?\3\2\2\2?A\3\2\2\2@>\3")
+        buf.write("\2\2\2AB\7\4\2\2BC\5&\24\2C\7\3\2\2\2DE\7\5\2\2EI\5&\24")
         buf.write("\2FH\5\4\3\2GF\3\2\2\2HK\3\2\2\2IG\3\2\2\2IJ\3\2\2\2J")
         buf.write("L\3\2\2\2KI\3\2\2\2LM\7\6\2\2M\t\3\2\2\2NO\7\7\2\2OP\7")
         buf.write("\64\2\2PQ\7\b\2\2QR\5&\24\2RS\7\t\2\2SV\5&\24\2TU\7\n")
@@ -106,33 +106,34 @@ def serializedATN():
         buf.write("\u00d9\7\64\2\2\u00d7\u00d9\5&\24\2\u00d8\u00d6\3\2\2")
         buf.write("\2\u00d8\u00d7\3\2\2\2\u00d9\u00da\3\2\2\2\u00da\u00db")
         buf.write("\7\b\2\2\u00db\u00dc\5&\24\2\u00dc%\3\2\2\2\u00dd\u00de")
-        buf.write("\b\24\1\2\u00de\u00df\t\2\2\2\u00df\u00f6\5&\24\20\u00e0")
+        buf.write("\b\24\1\2\u00de\u00df\t\2\2\2\u00df\u00f8\5&\24\22\u00e0")
         buf.write("\u00e1\7\26\2\2\u00e1\u00e2\5&\24\2\u00e2\u00e3\7\30\2")
-        buf.write("\2\u00e3\u00f6\3\2\2\2\u00e4\u00e6\7,\2\2\u00e5\u00e7")
+        buf.write("\2\u00e3\u00f8\3\2\2\2\u00e4\u00e6\7,\2\2\u00e5\u00e7")
         buf.write("\5&\24\2\u00e6\u00e5\3\2\2\2\u00e6\u00e7\3\2\2\2\u00e7")
         buf.write("\u00ec\3\2\2\2\u00e8\u00e9\7\27\2\2\u00e9\u00eb\5&\24")
         buf.write("\2\u00ea\u00e8\3\2\2\2\u00eb\u00ee\3\2\2\2\u00ec\u00ea")
         buf.write("\3\2\2\2\u00ec\u00ed\3\2\2\2\u00ed\u00ef\3\2\2\2\u00ee")
-        buf.write("\u00ec\3\2\2\2\u00ef\u00f6\7-\2\2\u00f0\u00f6\5 \21\2")
-        buf.write("\u00f1\u00f6\7/\2\2\u00f2\u00f6\7\63\2\2\u00f3\u00f6\7")
-        buf.write("\62\2\2\u00f4\u00f6\7\64\2\2\u00f5\u00dd\3\2\2\2\u00f5")
-        buf.write("\u00e0\3\2\2\2\u00f5\u00e4\3\2\2\2\u00f5\u00f0\3\2\2\2")
-        buf.write("\u00f5\u00f1\3\2\2\2\u00f5\u00f2\3\2\2\2\u00f5\u00f3\3")
-        buf.write("\2\2\2\u00f5\u00f4\3\2\2\2\u00f6\u010d\3\2\2\2\u00f7\u00f8")
-        buf.write("\f\17\2\2\u00f8\u00f9\t\3\2\2\u00f9\u010c\5&\24\20\u00fa")
-        buf.write("\u00fb\f\16\2\2\u00fb\u00fc\t\4\2\2\u00fc\u010c\5&\24")
-        buf.write("\17\u00fd\u00fe\f\r\2\2\u00fe\u00ff\t\5\2\2\u00ff\u010c")
-        buf.write("\5&\24\16\u0100\u0101\f\f\2\2\u0101\u0102\t\6\2\2\u0102")
-        buf.write("\u010c\5&\24\r\u0103\u0104\f\13\2\2\u0104\u0105\7,\2\2")
-        buf.write("\u0105\u0106\5&\24\2\u0106\u0107\7-\2\2\u0107\u010c\3")
-        buf.write("\2\2\2\u0108\u0109\f\7\2\2\u0109\u010a\7.\2\2\u010a\u010c")
-        buf.write("\7\64\2\2\u010b\u00f7\3\2\2\2\u010b\u00fa\3\2\2\2\u010b")
-        buf.write("\u00fd\3\2\2\2\u010b\u0100\3\2\2\2\u010b\u0103\3\2\2\2")
-        buf.write("\u010b\u0108\3\2\2\2\u010c\u010f\3\2\2\2\u010d\u010b\3")
-        buf.write("\2\2\2\u010d\u010e\3\2\2\2\u010e\'\3\2\2\2\u010f\u010d")
-        buf.write("\3\2\2\2\34+8>IV[gr|\u008b\u0094\u00a3\u00a6\u00ac\u00b5")
-        buf.write("\u00c1\u00c4\u00ce\u00d1\u00d4\u00d8\u00e6\u00ec\u00f5")
-        buf.write("\u010b\u010d")
+        buf.write("\u00ec\3\2\2\2\u00ef\u00f8\7-\2\2\u00f0\u00f8\5 \21\2")
+        buf.write("\u00f1\u00f8\7/\2\2\u00f2\u00f8\7\66\2\2\u00f3\u00f8\7")
+        buf.write("\65\2\2\u00f4\u00f8\7\62\2\2\u00f5\u00f8\7\63\2\2\u00f6")
+        buf.write("\u00f8\7\64\2\2\u00f7\u00dd\3\2\2\2\u00f7\u00e0\3\2\2")
+        buf.write("\2\u00f7\u00e4\3\2\2\2\u00f7\u00f0\3\2\2\2\u00f7\u00f1")
+        buf.write("\3\2\2\2\u00f7\u00f2\3\2\2\2\u00f7\u00f3\3\2\2\2\u00f7")
+        buf.write("\u00f4\3\2\2\2\u00f7\u00f5\3\2\2\2\u00f7\u00f6\3\2\2\2")
+        buf.write("\u00f8\u010f\3\2\2\2\u00f9\u00fa\f\21\2\2\u00fa\u00fb")
+        buf.write("\t\3\2\2\u00fb\u010e\5&\24\22\u00fc\u00fd\f\20\2\2\u00fd")
+        buf.write("\u00fe\t\4\2\2\u00fe\u010e\5&\24\21\u00ff\u0100\f\17\2")
+        buf.write("\2\u0100\u0101\t\5\2\2\u0101\u010e\5&\24\20\u0102\u0103")
+        buf.write("\f\16\2\2\u0103\u0104\t\6\2\2\u0104\u010e\5&\24\17\u0105")
+        buf.write("\u0106\f\r\2\2\u0106\u0107\7,\2\2\u0107\u0108\5&\24\2")
+        buf.write("\u0108\u0109\7-\2\2\u0109\u010e\3\2\2\2\u010a\u010b\f")
+        buf.write("\t\2\2\u010b\u010c\7.\2\2\u010c\u010e\7\64\2\2\u010d\u00f9")
+        buf.write("\3\2\2\2\u010d\u00fc\3\2\2\2\u010d\u00ff\3\2\2\2\u010d")
+        buf.write("\u0102\3\2\2\2\u010d\u0105\3\2\2\2\u010d\u010a\3\2\2\2")
+        buf.write("\u010e\u0111\3\2\2\2\u010f\u010d\3\2\2\2\u010f\u0110\3")
+        buf.write("\2\2\2\u0110\'\3\2\2\2\u0111\u010f\3\2\2\2\34+8>IV[gr")
+        buf.write("|\u008b\u0094\u00a3\u00a6\u00ac\u00b5\u00c1\u00c4\u00ce")
+        buf.write("\u00d1\u00d4\u00d8\u00e6\u00ec\u00f7\u010d\u010f")
         return buf.getvalue()
 
 
@@ -167,7 +168,7 @@ class pseudoParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "COMMENT", "WS", "BOOL", 
-                      "NUM", "IDENTIFIER", "FLOAT", "INT", "DIGIT", "LETTER" ]
+                      "STRING", "IDENTIFIER", "FLOAT", "INT", "DIGIT", "LETTER" ]
 
     RULE_prog = 0
     RULE_block = 1
@@ -243,7 +244,7 @@ class pseudoParser ( Parser ):
     COMMENT=46
     WS=47
     BOOL=48
-    NUM=49
+    STRING=49
     IDENTIFIER=50
     FLOAT=51
     INT=52
@@ -276,14 +277,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_prog
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterProg" ):
-                listener.enterProg(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitProg" ):
-                listener.exitProg(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitProg" ):
                 return visitor.visitProg(self)
@@ -303,7 +296,7 @@ class pseudoParser ( Parser ):
             self.state = 41
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.NUM) | (1 << pseudoParser.IDENTIFIER))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 38
                 self.block()
                 self.state = 43
@@ -368,14 +361,6 @@ class pseudoParser ( Parser ):
 
         def getRuleIndex(self):
             return pseudoParser.RULE_block
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterBlock" ):
-                listener.enterBlock(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitBlock" ):
-                listener.exitBlock(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitBlock" ):
@@ -485,14 +470,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_repeat_until
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterRepeat_until" ):
-                listener.enterRepeat_until(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitRepeat_until" ):
-                listener.exitRepeat_until(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitRepeat_until" ):
                 return visitor.visitRepeat_until(self)
@@ -514,7 +491,7 @@ class pseudoParser ( Parser ):
             self.state = 60
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.NUM) | (1 << pseudoParser.IDENTIFIER))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 57
                 self.block()
                 self.state = 62
@@ -555,14 +532,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_while_loop
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterWhile_loop" ):
-                listener.enterWhile_loop(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitWhile_loop" ):
-                listener.exitWhile_loop(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitWhile_loop" ):
                 return visitor.visitWhile_loop(self)
@@ -586,7 +555,7 @@ class pseudoParser ( Parser ):
             self.state = 71
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.NUM) | (1 << pseudoParser.IDENTIFIER))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 68
                 self.block()
                 self.state = 73
@@ -632,14 +601,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_for_loop_step
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterFor_loop_step" ):
-                listener.enterFor_loop_step(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitFor_loop_step" ):
-                listener.exitFor_loop_step(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitFor_loop_step" ):
                 return visitor.visitFor_loop_step(self)
@@ -681,7 +642,7 @@ class pseudoParser ( Parser ):
             self.state = 89
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.NUM) | (1 << pseudoParser.IDENTIFIER))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 86
                 self.block()
                 self.state = 91
@@ -723,14 +684,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_for_loop
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterFor_loop" ):
-                listener.enterFor_loop(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitFor_loop" ):
-                listener.exitFor_loop(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitFor_loop" ):
                 return visitor.visitFor_loop(self)
@@ -759,7 +712,7 @@ class pseudoParser ( Parser ):
             self.state = 101
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.NUM) | (1 << pseudoParser.IDENTIFIER))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 98
                 self.block()
                 self.state = 103
@@ -798,14 +751,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_if_block
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterIf_block" ):
-                listener.enterIf_block(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitIf_block" ):
-                listener.exitIf_block(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitIf_block" ):
                 return visitor.visitIf_block(self)
@@ -831,7 +776,7 @@ class pseudoParser ( Parser ):
             self.state = 112
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.NUM) | (1 << pseudoParser.IDENTIFIER))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 109
                 self.block()
                 self.state = 114
@@ -868,14 +813,6 @@ class pseudoParser ( Parser ):
 
         def getRuleIndex(self):
             return pseudoParser.RULE_record
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterRecord" ):
-                listener.enterRecord(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitRecord" ):
-                listener.exitRecord(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitRecord" ):
@@ -934,14 +871,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_field
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterField" ):
-                listener.enterField(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitField" ):
-                listener.exitField(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitField" ):
                 return visitor.visitField(self)
@@ -993,14 +922,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_else_if_block
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterElse_if_block" ):
-                listener.enterElse_if_block(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitElse_if_block" ):
-                listener.exitElse_if_block(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitElse_if_block" ):
                 return visitor.visitElse_if_block(self)
@@ -1026,7 +947,7 @@ class pseudoParser ( Parser ):
             self.state = 137
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.NUM) | (1 << pseudoParser.IDENTIFIER))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 134
                 self.block()
                 self.state = 139
@@ -1061,14 +982,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_else_block
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterElse_block" ):
-                listener.enterElse_block(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitElse_block" ):
-                listener.exitElse_block(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitElse_block" ):
                 return visitor.visitElse_block(self)
@@ -1090,7 +1003,7 @@ class pseudoParser ( Parser ):
             self.state = 146
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.NUM) | (1 << pseudoParser.IDENTIFIER))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 143
                 self.block()
                 self.state = 148
@@ -1120,14 +1033,6 @@ class pseudoParser ( Parser ):
 
         def getRuleIndex(self):
             return pseudoParser.RULE_arg
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterArg" ):
-                listener.enterArg(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitArg" ):
-                listener.exitArg(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitArg" ):
@@ -1182,14 +1087,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_subroutine
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterSubroutine" ):
-                listener.enterSubroutine(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitSubroutine" ):
-                listener.exitSubroutine(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitSubroutine" ):
                 return visitor.visitSubroutine(self)
@@ -1238,7 +1135,7 @@ class pseudoParser ( Parser ):
             self.state = 170
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.NUM) | (1 << pseudoParser.IDENTIFIER))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 167
                 self.block()
                 self.state = 172
@@ -1281,14 +1178,6 @@ class pseudoParser ( Parser ):
 
         def getRuleIndex(self):
             return pseudoParser.RULE_stat
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterStat" ):
-                listener.enterStat(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitStat" ):
-                listener.exitStat(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitStat" ):
@@ -1355,14 +1244,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_return_stat
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterReturn_stat" ):
-                listener.enterReturn_stat(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitReturn_stat" ):
-                listener.exitReturn_stat(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitReturn_stat" ):
                 return visitor.visitReturn_stat(self)
@@ -1411,14 +1292,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_function_call
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterFunction_call" ):
-                listener.enterFunction_call(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitFunction_call" ):
-                listener.exitFunction_call(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitFunction_call" ):
                 return visitor.visitFunction_call(self)
@@ -1442,7 +1315,7 @@ class pseudoParser ( Parser ):
             self.state = 194
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__19) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.NUM) | (1 << pseudoParser.IDENTIFIER))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__19) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 186
                 self.expr(0)
                 self.state = 191
@@ -1486,14 +1359,6 @@ class pseudoParser ( Parser ):
 
         def getRuleIndex(self):
             return pseudoParser.RULE_output
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterOutput" ):
-                listener.enterOutput(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitOutput" ):
-                listener.exitOutput(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitOutput" ):
@@ -1562,14 +1427,6 @@ class pseudoParser ( Parser ):
         def getRuleIndex(self):
             return pseudoParser.RULE_variable_assignment
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterVariable_assignment" ):
-                listener.enterVariable_assignment(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitVariable_assignment" ):
-                listener.exitVariable_assignment(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitVariable_assignment" ):
                 return visitor.visitVariable_assignment(self)
@@ -1637,32 +1494,6 @@ class pseudoParser ( Parser ):
             super().copyFrom(ctx)
 
 
-    class Unary_exprContext(ExprContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a pseudoParser.ExprContext
-            super().__init__(parser)
-            self.op = None # Token
-            self.copyFrom(ctx)
-
-        def expr(self):
-            return self.getTypedRuleContext(pseudoParser.ExprContext,0)
-
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterUnary_expr" ):
-                listener.enterUnary_expr(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitUnary_expr" ):
-                listener.exitUnary_expr(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitUnary_expr" ):
-                return visitor.visitUnary_expr(self)
-            else:
-                return visitor.visitChildren(self)
-
-
     class Binary_exprContext(ExprContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a pseudoParser.ExprContext
@@ -1676,14 +1507,6 @@ class pseudoParser ( Parser ):
             else:
                 return self.getTypedRuleContext(pseudoParser.ExprContext,i)
 
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterBinary_expr" ):
-                listener.enterBinary_expr(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitBinary_expr" ):
-                listener.exitBinary_expr(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitBinary_expr" ):
@@ -1705,14 +1528,6 @@ class pseudoParser ( Parser ):
                 return self.getTypedRuleContext(pseudoParser.ExprContext,i)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterIndex_expr" ):
-                listener.enterIndex_expr(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitIndex_expr" ):
-                listener.exitIndex_expr(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitIndex_expr" ):
                 return visitor.visitIndex_expr(self)
@@ -1720,75 +1535,50 @@ class pseudoParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
-    class Field_accessContext(ExprContext):
+    class BoolContext(ExprContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a pseudoParser.ExprContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def expr(self):
-            return self.getTypedRuleContext(pseudoParser.ExprContext,0)
-
-        def IDENTIFIER(self):
-            return self.getToken(pseudoParser.IDENTIFIER, 0)
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterField_access" ):
-                listener.enterField_access(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitField_access" ):
-                listener.exitField_access(self)
+        def BOOL(self):
+            return self.getToken(pseudoParser.BOOL, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitField_access" ):
-                return visitor.visitField_access(self)
+            if hasattr( visitor, "visitBool" ):
+                return visitor.visitBool(self)
             else:
                 return visitor.visitChildren(self)
 
 
-    class User_inputContext(ExprContext):
+    class StringContext(ExprContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a pseudoParser.ExprContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterUser_input" ):
-                listener.enterUser_input(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitUser_input" ):
-                listener.exitUser_input(self)
+        def STRING(self):
+            return self.getToken(pseudoParser.STRING, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitUser_input" ):
-                return visitor.visitUser_input(self)
+            if hasattr( visitor, "visitString" ):
+                return visitor.visitString(self)
             else:
                 return visitor.visitChildren(self)
 
 
-    class VariableContext(ExprContext):
+    class RealContext(ExprContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a pseudoParser.ExprContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def IDENTIFIER(self):
-            return self.getToken(pseudoParser.IDENTIFIER, 0)
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterVariable" ):
-                listener.enterVariable(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitVariable" ):
-                listener.exitVariable(self)
+        def FLOAT(self):
+            return self.getToken(pseudoParser.FLOAT, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitVariable" ):
-                return visitor.visitVariable(self)
+            if hasattr( visitor, "visitReal" ):
+                return visitor.visitReal(self)
             else:
                 return visitor.visitChildren(self)
 
@@ -1803,14 +1593,6 @@ class pseudoParser ( Parser ):
             return self.getTypedRuleContext(pseudoParser.ExprContext,0)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParenthesis_expr" ):
-                listener.enterParenthesis_expr(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParenthesis_expr" ):
-                listener.exitParenthesis_expr(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitParenthesis_expr" ):
                 return visitor.visitParenthesis_expr(self)
@@ -1818,27 +1600,18 @@ class pseudoParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
-    class Function_call_exprContext(ExprContext):
+    class IntContext(ExprContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a pseudoParser.ExprContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def function_call(self):
-            return self.getTypedRuleContext(pseudoParser.Function_callContext,0)
-
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterFunction_call_expr" ):
-                listener.enterFunction_call_expr(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitFunction_call_expr" ):
-                listener.exitFunction_call_expr(self)
+        def INT(self):
+            return self.getToken(pseudoParser.INT, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitFunction_call_expr" ):
-                return visitor.visitFunction_call_expr(self)
+            if hasattr( visitor, "visitInt" ):
+                return visitor.visitInt(self)
             else:
                 return visitor.visitChildren(self)
 
@@ -1856,14 +1629,6 @@ class pseudoParser ( Parser ):
                 return self.getTypedRuleContext(pseudoParser.ExprContext,i)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterArray_expr" ):
-                listener.enterArray_expr(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitArray_expr" ):
-                listener.exitArray_expr(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitArray_expr" ):
                 return visitor.visitArray_expr(self)
@@ -1871,28 +1636,86 @@ class pseudoParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
-    class LiteralContext(ExprContext):
+    class Unary_exprContext(ExprContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a pseudoParser.ExprContext
+            super().__init__(parser)
+            self.op = None # Token
+            self.copyFrom(ctx)
+
+        def expr(self):
+            return self.getTypedRuleContext(pseudoParser.ExprContext,0)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitUnary_expr" ):
+                return visitor.visitUnary_expr(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class Field_accessContext(ExprContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a pseudoParser.ExprContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def NUM(self):
-            return self.getToken(pseudoParser.NUM, 0)
-        def BOOL(self):
-            return self.getToken(pseudoParser.BOOL, 0)
+        def expr(self):
+            return self.getTypedRuleContext(pseudoParser.ExprContext,0)
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterLiteral" ):
-                listener.enterLiteral(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitLiteral" ):
-                listener.exitLiteral(self)
+        def IDENTIFIER(self):
+            return self.getToken(pseudoParser.IDENTIFIER, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLiteral" ):
-                return visitor.visitLiteral(self)
+            if hasattr( visitor, "visitField_access" ):
+                return visitor.visitField_access(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class User_inputContext(ExprContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a pseudoParser.ExprContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitUser_input" ):
+                return visitor.visitUser_input(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class VariableContext(ExprContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a pseudoParser.ExprContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def IDENTIFIER(self):
+            return self.getToken(pseudoParser.IDENTIFIER, 0)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitVariable" ):
+                return visitor.visitVariable(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class Function_call_exprContext(ExprContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a pseudoParser.ExprContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def function_call(self):
+            return self.getTypedRuleContext(pseudoParser.Function_callContext,0)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFunction_call_expr" ):
+                return visitor.visitFunction_call_expr(self)
             else:
                 return visitor.visitChildren(self)
 
@@ -1908,7 +1731,7 @@ class pseudoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 243
+            self.state = 245
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,23,self._ctx)
             if la_ == 1:
@@ -1925,7 +1748,7 @@ class pseudoParser ( Parser ):
                     self._errHandler.reportMatch(self)
                     self.consume()
                 self.state = 221
-                self.expr(14)
+                self.expr(16)
                 pass
 
             elif la_ == 2:
@@ -1949,7 +1772,7 @@ class pseudoParser ( Parser ):
                 self.state = 228
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__19) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.NUM) | (1 << pseudoParser.IDENTIFIER))) != 0):
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__19) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                     self.state = 227
                     self.expr(0)
 
@@ -1987,32 +1810,48 @@ class pseudoParser ( Parser ):
                 pass
 
             elif la_ == 6:
-                localctx = pseudoParser.LiteralContext(self, localctx)
+                localctx = pseudoParser.IntContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 240
-                self.match(pseudoParser.NUM)
+                self.match(pseudoParser.INT)
                 pass
 
             elif la_ == 7:
-                localctx = pseudoParser.LiteralContext(self, localctx)
+                localctx = pseudoParser.RealContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 241
-                self.match(pseudoParser.BOOL)
+                self.match(pseudoParser.FLOAT)
                 pass
 
             elif la_ == 8:
-                localctx = pseudoParser.VariableContext(self, localctx)
+                localctx = pseudoParser.BoolContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 242
+                self.match(pseudoParser.BOOL)
+                pass
+
+            elif la_ == 9:
+                localctx = pseudoParser.StringContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 243
+                self.match(pseudoParser.STRING)
+                pass
+
+            elif la_ == 10:
+                localctx = pseudoParser.VariableContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 244
                 self.match(pseudoParser.IDENTIFIER)
                 pass
 
 
             self._ctx.stop = self._input.LT(-1)
-            self.state = 267
+            self.state = 269
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,25,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
@@ -2020,17 +1859,17 @@ class pseudoParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    self.state = 265
+                    self.state = 267
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,24,self._ctx)
                     if la_ == 1:
                         localctx = pseudoParser.Binary_exprContext(self, pseudoParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 245
-                        if not self.precpred(self._ctx, 13):
+                        self.state = 247
+                        if not self.precpred(self._ctx, 15):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 13)")
-                        self.state = 246
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 15)")
+                        self.state = 248
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__28) | (1 << pseudoParser.T__29) | (1 << pseudoParser.T__30) | (1 << pseudoParser.T__31))) != 0)):
@@ -2038,18 +1877,18 @@ class pseudoParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 247
-                        self.expr(14)
+                        self.state = 249
+                        self.expr(16)
                         pass
 
                     elif la_ == 2:
                         localctx = pseudoParser.Binary_exprContext(self, pseudoParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 248
-                        if not self.precpred(self._ctx, 12):
+                        self.state = 250
+                        if not self.precpred(self._ctx, 14):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 12)")
-                        self.state = 249
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 14)")
+                        self.state = 251
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not(_la==pseudoParser.T__27 or _la==pseudoParser.T__32):
@@ -2057,18 +1896,18 @@ class pseudoParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 250
-                        self.expr(13)
+                        self.state = 252
+                        self.expr(15)
                         pass
 
                     elif la_ == 3:
                         localctx = pseudoParser.Binary_exprContext(self, pseudoParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 251
-                        if not self.precpred(self._ctx, 11):
+                        self.state = 253
+                        if not self.precpred(self._ctx, 13):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 11)")
-                        self.state = 252
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 13)")
+                        self.state = 254
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__33) | (1 << pseudoParser.T__34) | (1 << pseudoParser.T__35) | (1 << pseudoParser.T__36) | (1 << pseudoParser.T__37) | (1 << pseudoParser.T__38))) != 0)):
@@ -2076,18 +1915,18 @@ class pseudoParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 253
-                        self.expr(12)
+                        self.state = 255
+                        self.expr(14)
                         pass
 
                     elif la_ == 4:
                         localctx = pseudoParser.Binary_exprContext(self, pseudoParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 254
-                        if not self.precpred(self._ctx, 10):
+                        self.state = 256
+                        if not self.precpred(self._ctx, 12):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 10)")
-                        self.state = 255
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 12)")
+                        self.state = 257
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not(_la==pseudoParser.T__39 or _la==pseudoParser.T__40):
@@ -2095,40 +1934,40 @@ class pseudoParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 256
-                        self.expr(11)
+                        self.state = 258
+                        self.expr(13)
                         pass
 
                     elif la_ == 5:
                         localctx = pseudoParser.Index_exprContext(self, pseudoParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 257
-                        if not self.precpred(self._ctx, 9):
-                            from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 9)")
-                        self.state = 258
-                        self.match(pseudoParser.T__41)
                         self.state = 259
-                        self.expr(0)
+                        if not self.precpred(self._ctx, 11):
+                            from antlr4.error.Errors import FailedPredicateException
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 11)")
                         self.state = 260
+                        self.match(pseudoParser.T__41)
+                        self.state = 261
+                        self.expr(0)
+                        self.state = 262
                         self.match(pseudoParser.T__42)
                         pass
 
                     elif la_ == 6:
                         localctx = pseudoParser.Field_accessContext(self, pseudoParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 262
-                        if not self.precpred(self._ctx, 5):
-                            from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
-                        self.state = 263
-                        self.match(pseudoParser.T__43)
                         self.state = 264
+                        if not self.precpred(self._ctx, 7):
+                            from antlr4.error.Errors import FailedPredicateException
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 7)")
+                        self.state = 265
+                        self.match(pseudoParser.T__43)
+                        self.state = 266
                         self.match(pseudoParser.IDENTIFIER)
                         pass
 
              
-                self.state = 269
+                self.state = 271
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,25,self._ctx)
 
@@ -2154,27 +1993,27 @@ class pseudoParser ( Parser ):
 
     def expr_sempred(self, localctx:ExprContext, predIndex:int):
             if predIndex == 0:
-                return self.precpred(self._ctx, 13)
+                return self.precpred(self._ctx, 15)
          
 
             if predIndex == 1:
-                return self.precpred(self._ctx, 12)
+                return self.precpred(self._ctx, 14)
          
 
             if predIndex == 2:
-                return self.precpred(self._ctx, 11)
+                return self.precpred(self._ctx, 13)
          
 
             if predIndex == 3:
-                return self.precpred(self._ctx, 10)
+                return self.precpred(self._ctx, 12)
          
 
             if predIndex == 4:
-                return self.precpred(self._ctx, 9)
+                return self.precpred(self._ctx, 11)
          
 
             if predIndex == 5:
-                return self.precpred(self._ctx, 5)
+                return self.precpred(self._ctx, 7)
          
 
 

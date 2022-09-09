@@ -17,8 +17,7 @@ class SymbolTable:
         self.create_scope()
 
     def add_var(self, variable: Variable) -> SymbolTable:
-        if not self.find_var(variable.name):
-            self.scopes[-1].add_var(variable)
+        self.scopes[-1].add_var(variable)
         return self
 
     def add_type(self, _type: Type) -> SymbolTable:

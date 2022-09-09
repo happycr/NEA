@@ -1,4 +1,4 @@
-# Generated from /Users/cyruslinden/PycharmProjects/NEA/pseudo.g4 by ANTLR 4.9.2
+# Generated from pseudo.g4 by ANTLR 4.9.2
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .pseudoParser import pseudoParser
@@ -170,15 +170,6 @@ class pseudoListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by pseudoParser#unary_expr.
-    def enterUnary_expr(self, ctx:pseudoParser.Unary_exprContext):
-        pass
-
-    # Exit a parse tree produced by pseudoParser#unary_expr.
-    def exitUnary_expr(self, ctx:pseudoParser.Unary_exprContext):
-        pass
-
-
     # Enter a parse tree produced by pseudoParser#binary_expr.
     def enterBinary_expr(self, ctx:pseudoParser.Binary_exprContext):
         pass
@@ -194,6 +185,69 @@ class pseudoListener(ParseTreeListener):
 
     # Exit a parse tree produced by pseudoParser#index_expr.
     def exitIndex_expr(self, ctx:pseudoParser.Index_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by pseudoParser#bool.
+    def enterBool(self, ctx:pseudoParser.BoolContext):
+        pass
+
+    # Exit a parse tree produced by pseudoParser#bool.
+    def exitBool(self, ctx:pseudoParser.BoolContext):
+        pass
+
+
+    # Enter a parse tree produced by pseudoParser#string.
+    def enterString(self, ctx:pseudoParser.StringContext):
+        pass
+
+    # Exit a parse tree produced by pseudoParser#string.
+    def exitString(self, ctx:pseudoParser.StringContext):
+        pass
+
+
+    # Enter a parse tree produced by pseudoParser#real.
+    def enterReal(self, ctx:pseudoParser.RealContext):
+        pass
+
+    # Exit a parse tree produced by pseudoParser#real.
+    def exitReal(self, ctx:pseudoParser.RealContext):
+        pass
+
+
+    # Enter a parse tree produced by pseudoParser#parenthesis_expr.
+    def enterParenthesis_expr(self, ctx:pseudoParser.Parenthesis_exprContext):
+        pass
+
+    # Exit a parse tree produced by pseudoParser#parenthesis_expr.
+    def exitParenthesis_expr(self, ctx:pseudoParser.Parenthesis_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by pseudoParser#int.
+    def enterInt(self, ctx:pseudoParser.IntContext):
+        pass
+
+    # Exit a parse tree produced by pseudoParser#int.
+    def exitInt(self, ctx:pseudoParser.IntContext):
+        pass
+
+
+    # Enter a parse tree produced by pseudoParser#array_expr.
+    def enterArray_expr(self, ctx:pseudoParser.Array_exprContext):
+        pass
+
+    # Exit a parse tree produced by pseudoParser#array_expr.
+    def exitArray_expr(self, ctx:pseudoParser.Array_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by pseudoParser#unary_expr.
+    def enterUnary_expr(self, ctx:pseudoParser.Unary_exprContext):
+        pass
+
+    # Exit a parse tree produced by pseudoParser#unary_expr.
+    def exitUnary_expr(self, ctx:pseudoParser.Unary_exprContext):
         pass
 
 
@@ -224,39 +278,12 @@ class pseudoListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by pseudoParser#parenthesis_expr.
-    def enterParenthesis_expr(self, ctx:pseudoParser.Parenthesis_exprContext):
-        pass
-
-    # Exit a parse tree produced by pseudoParser#parenthesis_expr.
-    def exitParenthesis_expr(self, ctx:pseudoParser.Parenthesis_exprContext):
-        pass
-
-
     # Enter a parse tree produced by pseudoParser#function_call_expr.
     def enterFunction_call_expr(self, ctx:pseudoParser.Function_call_exprContext):
         pass
 
     # Exit a parse tree produced by pseudoParser#function_call_expr.
     def exitFunction_call_expr(self, ctx:pseudoParser.Function_call_exprContext):
-        pass
-
-
-    # Enter a parse tree produced by pseudoParser#array_expr.
-    def enterArray_expr(self, ctx:pseudoParser.Array_exprContext):
-        pass
-
-    # Exit a parse tree produced by pseudoParser#array_expr.
-    def exitArray_expr(self, ctx:pseudoParser.Array_exprContext):
-        pass
-
-
-    # Enter a parse tree produced by pseudoParser#literal.
-    def enterLiteral(self, ctx:pseudoParser.LiteralContext):
-        pass
-
-    # Exit a parse tree produced by pseudoParser#literal.
-    def exitLiteral(self, ctx:pseudoParser.LiteralContext):
         pass
 
 

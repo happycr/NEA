@@ -1,3 +1,4 @@
+import Operations
 from SymbolTable import SymbolTable
 from gen.pseudoVisitor import pseudoVisitor
 from gen.pseudoParser import pseudoParser
@@ -5,6 +6,7 @@ from Errors import *
 from Variable import Variable
 from Function import Function
 from record import Record
+import Types
 from Argument import Argument
 from antlr4 import *
 
@@ -36,8 +38,10 @@ class SymbolTableVisitor(pseudoVisitor):
     def visitVariable_assignment(self, ctx: pseudoParser.Variable_assignmentContext) -> None:
         if ctx.IDENTIFIER():
             name = ctx.IDENTIFIER().getText()
-            self.symbol_table.add_var(Variable(name))
-        self.visitChildren(ctx)
+            variable = self.symbol_table.find_var(name)
+            if not variable:
+                expr = self.visit(ctx.expr()[0])
+                self.symbol_table.add_var(Variable(name, expr))
 
     def visitSubroutine(self, ctx: pseudoParser.SubroutineContext) -> None:
         name = ctx.IDENTIFIER().getText()
@@ -91,3 +95,54 @@ class SymbolTableVisitor(pseudoVisitor):
         name = ctx.getText()
         self.symbol_table.add_var(Variable(name))
         self.visitChildren(ctx)
+
+    def visitInt(self, ctx: pseudoParser.IntContext):
+        return Types.Int
+
+    def visitReal(self, ctx: pseudoParser.RealContext):
+        return Types.Real
+
+    def visitBool(self, ctx: pseudoParser.BoolContext):
+        return Types.Bool
+
+    def visitString(self, ctx: pseudoParser.StringContext):
+        return Types.String
+
+    def visitBinary_expr(self, ctx:pseudoParser.Binary_exprContext):
+        lhs = self.visit(ctx.expr()[0])
+        rhs = self.visit(ctx.expr()[1])
+        operand = ctx.op.text
+        dict_of_operations = {
+            '+' : Operations.add,
+            '*' : Operations.multiply,
+            '-' : Operations.subtract,
+            '/' : Operations.divide,
+            'MOD': Operations.mod,
+            'DIV': Operations.div,
+            '<' : Operations.compare,
+            '>': Operations.compare,
+            '=': Operations.compare,
+            '≠': Operations.compare,
+            '≤': Operations.compare,
+            '≥': Operations.compare,
+            'AND': Operations.bool_operation,
+            'OR': Operations.bool_operation
+        }
+        return dict_of_operations[operand](lhs, rhs)
+
+    def visitUnary_expr(self, ctx:pseudoParser.Unary_exprContext):
+        arg = self.visit(ctx.expr())
+        operand = ctx.op.text
+
+        dict_of_operations= {
+            'NOT': Operations.Not,
+            '-': Operations.minus
+        }
+        return dict_of_operations[operand](arg)
+
+    def visitParenthesis_expr(self, ctx:pseudoParser.Parenthesis_exprContext):
+        return self.visit(ctx.expr())
+
+
+
+

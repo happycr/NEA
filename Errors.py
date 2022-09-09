@@ -2,6 +2,13 @@ class TranslationError(Exception):
     pass
 
 
+class CustomError(TranslationError):
+    def __init__(self, msg):
+        super().__init__()
+        self.msg = msg
+
+    def output_msg(self):
+        return self.msg
 class VariableNotDefined(TranslationError):
     def __init__(self, name):
         super().__init__()

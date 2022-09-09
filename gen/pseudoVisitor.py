@@ -1,4 +1,4 @@
-# Generated from /Users/cyruslinden/PycharmProjects/NEA/pseudo.g4 by ANTLR 4.9.2
+# Generated from pseudo.g4 by ANTLR 4.9.2
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .pseudoParser import pseudoParser
@@ -99,11 +99,6 @@ class pseudoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by pseudoParser#unary_expr.
-    def visitUnary_expr(self, ctx:pseudoParser.Unary_exprContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by pseudoParser#binary_expr.
     def visitBinary_expr(self, ctx:pseudoParser.Binary_exprContext):
         return self.visitChildren(ctx)
@@ -111,6 +106,41 @@ class pseudoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by pseudoParser#index_expr.
     def visitIndex_expr(self, ctx:pseudoParser.Index_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by pseudoParser#bool.
+    def visitBool(self, ctx:pseudoParser.BoolContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by pseudoParser#string.
+    def visitString(self, ctx:pseudoParser.StringContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by pseudoParser#real.
+    def visitReal(self, ctx:pseudoParser.RealContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by pseudoParser#parenthesis_expr.
+    def visitParenthesis_expr(self, ctx:pseudoParser.Parenthesis_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by pseudoParser#int.
+    def visitInt(self, ctx:pseudoParser.IntContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by pseudoParser#array_expr.
+    def visitArray_expr(self, ctx:pseudoParser.Array_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by pseudoParser#unary_expr.
+    def visitUnary_expr(self, ctx:pseudoParser.Unary_exprContext):
         return self.visitChildren(ctx)
 
 
@@ -129,23 +159,8 @@ class pseudoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by pseudoParser#parenthesis_expr.
-    def visitParenthesis_expr(self, ctx:pseudoParser.Parenthesis_exprContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by pseudoParser#function_call_expr.
     def visitFunction_call_expr(self, ctx:pseudoParser.Function_call_exprContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by pseudoParser#array_expr.
-    def visitArray_expr(self, ctx:pseudoParser.Array_exprContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by pseudoParser#literal.
-    def visitLiteral(self, ctx:pseudoParser.LiteralContext):
         return self.visitChildren(ctx)
 
 

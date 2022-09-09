@@ -4,7 +4,7 @@ from record import Record
 from gen.pseudoVisitor import pseudoVisitor
 from gen.pseudoParser import pseudoParser
 from GenericVisitor import GenericVisitor
-
+import Operations
 
 # TO DO PUT IN A CLASS
 
@@ -25,7 +25,16 @@ class Visitor(pseudoVisitor, GenericVisitor):
 
         return self.visit(ctx.expr()[0]) + " " + operator + " " + self.visit(ctx.expr()[1])
 
-    def visitLiteral(self, ctx: pseudoParser.LiteralContext) -> str:
+    def visitInt(self, ctx: pseudoParser.IntContext) -> str:
+        return ctx.getText()
+
+    def visitBool(self, ctx: pseudoParser.BoolContext) -> str:
+        return ctx.getText()
+
+    def visitReal(self, ctx: pseudoParser.RealContext) -> str:
+        return ctx.getText()
+
+    def visitString(self, ctx: pseudoParser.StringContext) -> str:
         return ctx.getText()
 
     def visitVariable(self, ctx: pseudoParser.VariableContext) -> str:

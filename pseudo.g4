@@ -32,19 +32,18 @@ expr: op=  ('NOT' | '-') expr  #unary_expr
     | function_call #function_call_expr
     | expr '.' IDENTIFIER #field_access
     | 'USERINPUT' #user_input
-    | NUM #literal
-    | BOOL #literal
+    | INT #int
+    | FLOAT #real
+    | BOOL #bool
+    | STRING #string
     | IDENTIFIER #variable
     ;
 
 
 WS : (' '|'\t'|'\r'|'\n')+ -> skip ;
 BOOL: 'True' | 'False' ;
-/* Integer / Float literal */
-NUM: INT | FLOAT;
-
-IDENTIFIER: LETTER  (LETTER | '_' | NUM)* ;
-
+STRING: '"' .*? '"' ;
+IDENTIFIER: LETTER  (LETTER | '_' | INT | FLOAT)* ;
 /* Float Literal*/
 FLOAT: ('.' INT+) | (INT '.' INT) ;
 /*Int literal */

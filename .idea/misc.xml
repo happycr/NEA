@@ -6,11 +6,12 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/pseudo.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="" />
+          <option name="outputDir" value="$PROJECT_DIR$/gen" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="" />
-          <option name="language" value="" />
+          <option name="pkg" value="$PROJECT_DIR$/gen" />
+          <option name="language" value="Python3" />
+          <option name="generateListener" value="false" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
       </list>

@@ -1,5 +1,5 @@
 # This is a sample Python script.
-
+import Types
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
@@ -8,8 +8,8 @@ from FrontEnd import FrontEnd
 from SymbolTableVisitor import SymbolTableVisitor
 from visitor import Visitor
 from Errors import *
-
-
+from Operations import add
+from Types import *
 def main():
     stream = IO.get_stream()
     try:
