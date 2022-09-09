@@ -5,7 +5,6 @@ class GenericVisitor:
     def __init__(self):
         self.__indent = 0
         self.symbol_table_visitor = SymbolTableVisitor()
-        self.side_visitors = [self.symbol_table_visitor]
 
     def create_scope(self, indent=4) -> None:
 

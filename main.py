@@ -4,15 +4,20 @@
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 from IO import IO
-from Translator import Translator
+from FrontEnd import FrontEnd
+from SymbolTableVisitor import SymbolTableVisitor
+from visitor import Visitor
 from Errors import *
 
 
 def main():
     stream = IO.get_stream()
     try:
-        output = Translator.translate(stream)
-        IO.write(output)
+        tree = FrontEnd.get_tree(stream)
+        symbol_table_visitor = SymbolTableVisitor()
+        symbol_table_visitor.visit(tree)
+        symbol_table = symbol_table_visitor.symbol_table
+        IO.write(Visitor().visit(tree))
 
     except TranslationError as e:
         print(e.output_msg())

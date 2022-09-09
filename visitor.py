@@ -152,11 +152,6 @@ class Visitor(pseudoVisitor, GenericVisitor):
         self.destroy_scope()
         return "while True:\n" + body
 
-    def visit(self, tree):
-        for visitor in self.side_visitors:
-            visitor.visit(tree)
-        return super().visit(tree)
-
     def visitStat(self, ctx: pseudoParser.StatContext):
         return self.visitChild(ctx)
 

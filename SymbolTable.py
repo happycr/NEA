@@ -1,16 +1,19 @@
 from __future__ import annotations
 
+import Types
 from Argument import Argument
 from Scope import Scope
 from Variable import Variable
 from Function import Function
 from Scope import Scope
+from Types import Type
 
 
 class SymbolTable:
     def __init__(self):
         self.scopes: [Scope] = []
-        self.functions: [Function] = []
+        self.functions: {str: Function} = {}
+        self.types: {str: Type} = {_type.name: _type for _type in Types.primitive_types}
         self.create_scope()
 
     def add_var(self, variable: Variable) -> SymbolTable:
@@ -18,8 +21,12 @@ class SymbolTable:
             self.scopes[-1].add_var(variable)
         return self
 
+    def add_type(self, _type: Type) -> SymbolTable:
+        self.types[_type.name] = _type
+        return self
+
     def add_func(self, func: Function) -> SymbolTable:
-        self.functions.append(func)
+        self.functions[func.name] = func
         return self
 
     def create_scope(self) -> None:
@@ -34,9 +41,10 @@ class SymbolTable:
             if var: return var
 
     def find_func(self, name: str) -> None | Function:
-        for func in self.functions:
-            if func.name == name:
-                return func
+        return self.functions.get(name)
+
+    def find_type(self, name: str):
+        return self.types.get(name)
 
     def debug_print(self) -> None:
         for scope in self.scopes:
