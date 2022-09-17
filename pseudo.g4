@@ -4,6 +4,7 @@ options {
 }
 prog: (block)* ;
 block: record| repeat_until | while_loop |for_loop_step | for_loop| if_block | else_if_block | else_block| subroutine | stat;
+
 repeat_until: 'REPEAT' block* 'UNTIL' expr;
 while_loop: 'WHILE' expr block* 'ENDWHILE';
 for_loop_step: 'FOR' IDENTIFIER '<-' expr 'TO' expr   ('STEP' step = expr)? block* 'ENDFOR';
@@ -15,7 +16,9 @@ else_if_block: 'ELSE IF' expr 'THEN' block* 'ENDIF';
 else_block: 'ELSE' block* 'ENDIF';
 arg : IDENTIFIER;
 subroutine: 'SUBROUTINE' IDENTIFIER '(' (arg (',' arg)*)? ')' (block*) 'ENDSUBROUTINE';
-stat: variable_assignment | output | return_stat | expr  ;
+stat: variable_assignment | output | return_stat | reveal_type | expr  ;
+reveal_type: 'reveal_type' expr;
+
 return_stat: 'RETURN' expr;
 function_call: IDENTIFIER '(' (expr (',' expr)*)? ')';
 output: 'OUTPUT' (expr (',' expr)*)? ;

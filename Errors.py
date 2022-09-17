@@ -1,5 +1,12 @@
 class TranslationError(Exception):
-    pass
+    def __init__(self):
+        self.line = None
+
+    def output_msg(self):
+        pass
+
+    def formatted_output_msg(self):
+        return f"At line {self.line}:\n{self.output_msg()}"
 
 
 class CustomError(TranslationError):
@@ -9,6 +16,8 @@ class CustomError(TranslationError):
 
     def output_msg(self):
         return self.msg
+
+
 class VariableNotDefined(TranslationError):
     def __init__(self, name):
         super().__init__()
@@ -35,6 +44,7 @@ class WrongNumberOfArguments(TranslationError):
     def output_msg(self):
         return f"Wrong number of arguments for function {self.ctx.IDENTIFIER().getText()}"
 
+
 class FunctionAlreadyDefined(TranslationError):
     def __init__(self, name):
         super().__init__()
@@ -42,7 +52,3 @@ class FunctionAlreadyDefined(TranslationError):
 
     def output_msg(self):
         return f"Function {self.name} already defined"
-
-
-
-

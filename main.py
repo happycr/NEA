@@ -20,7 +20,7 @@ def main():
         IO.write(Visitor().visit(tree))
 
     except TranslationError as e:
-        print(e.output_msg())
+        print(e.formatted_output_msg())
 
 
 # Press the green button in the gutter to run the script.

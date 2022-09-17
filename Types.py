@@ -1,4 +1,3 @@
-from record import Record
 from gen.pseudoParser import pseudoParser
 
 
@@ -8,6 +7,9 @@ class Type:
 
     def __iter__(self):
         yield self
+
+    def getField(self, name):
+        pass
 
 
 class UnionType(Type):
@@ -22,10 +24,12 @@ class UnionType(Type):
 
 
 class UserDefinedType(Type):
-    def __init__(self, ctx: pseudoParser.RecordContext):
-        name = ctx.IDENTIFIER().getText()
+    def __init__(self, name, fields: {str: Type}):
+        self.fields = fields
         super().__init__(name)
-        self.record = Record(ctx)
+
+    def getField(self, name) -> Type | None:
+        return self.fields.get(name)
 
 
 class ErrorType(Type):
@@ -36,9 +40,9 @@ class PrimitiveType(Type):
     pass
 
 
-Int = PrimitiveType("int")
-Real = PrimitiveType("real")
-Bool = PrimitiveType("bool")
-Char = PrimitiveType("char")
-String = PrimitiveType("string")
-primitive_types = [Int, Real, Bool, Char, String]
+Int = PrimitiveType("Integer")
+Real = PrimitiveType("Real")
+Bool = PrimitiveType("Bool")
+String = PrimitiveType("String")
+
+primitive_types = [Int, Real, Bool, String]

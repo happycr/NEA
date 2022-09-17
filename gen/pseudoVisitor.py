@@ -79,6 +79,11 @@ class pseudoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by pseudoParser#reveal_type.
+    def visitReveal_type(self, ctx:pseudoParser.Reveal_typeContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by pseudoParser#return_stat.
     def visitReturn_stat(self, ctx:pseudoParser.Return_statContext):
         return self.visitChildren(ctx)

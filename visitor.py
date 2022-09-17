@@ -1,11 +1,10 @@
 from SymbolTableVisitor import SymbolTableVisitor
-from record import Record
 
 from gen.pseudoVisitor import pseudoVisitor
 from gen.pseudoParser import pseudoParser
 from GenericVisitor import GenericVisitor
 import Operations
-
+from record import Record
 # TO DO PUT IN A CLASS
 
 
@@ -124,7 +123,15 @@ class Visitor(pseudoVisitor, GenericVisitor):
         return f"print({self.visit(ctx.expr()[0])})"
 
     def visitFunction_call(self, ctx: pseudoParser.Function_callContext):
-        return f"{ctx.IDENTIFIER().getText()}({self.visit_list(ctx.expr(), sep=', ')})"
+        function_call_name = ctx.IDENTIFIER().getText()
+        match function_call_name:
+            case "Integer": function_call_name = "int"
+            case "String": function_call_name = "str"
+            case "Real": function_call_name = "float"
+            case "Bool": function_call_name = "bool"
+            case _: pass
+
+        return f"{function_call_name}({self.visit_list(ctx.expr(), sep=', ')})"
 
     def visitRecord(self, ctx: pseudoParser.RecordContext):
         record = Record(ctx)
@@ -170,3 +177,6 @@ class Visitor(pseudoVisitor, GenericVisitor):
     def visitChild(self, node):
         child = node.getChild(0)
         return self.visit(child)
+
+    def visitReveal_type(self, ctx:pseudoParser.Reveal_typeContext):
+        return ""
