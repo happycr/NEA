@@ -40,59 +40,59 @@ def serializedATN():
         buf.write("\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25")
         buf.write("\3\25\3\25\3\25\3\25\3\25\3\25\7\25\u0114\n\25\f\25\16")
         buf.write("\25\u0117\13\25\3\25\2\3(\26\2\4\6\b\n\f\16\20\22\24\26")
-        buf.write("\30\32\34\36 \"$&(\2\7\3\2\36\37\3\2 #\4\2\37\37$$\3\2")
-        buf.write("%*\3\2+,\2\u0135\2-\3\2\2\2\4:\3\2\2\2\6<\3\2\2\2\bF\3")
-        buf.write("\2\2\2\nP\3\2\2\2\fb\3\2\2\2\16n\3\2\2\2\20y\3\2\2\2\22")
-        buf.write("\u0083\3\2\2\2\24\u0087\3\2\2\2\26\u0092\3\2\2\2\30\u009b")
-        buf.write("\3\2\2\2\32\u009d\3\2\2\2\34\u00b8\3\2\2\2\36\u00ba\3")
-        buf.write("\2\2\2 \u00bd\3\2\2\2\"\u00c0\3\2\2\2$\u00ce\3\2\2\2&")
-        buf.write("\u00da\3\2\2\2(\u00fd\3\2\2\2*,\5\4\3\2+*\3\2\2\2,/\3")
-        buf.write("\2\2\2-+\3\2\2\2-.\3\2\2\2.\3\3\2\2\2/-\3\2\2\2\60;\5")
-        buf.write("\20\t\2\61;\5\6\4\2\62;\5\b\5\2\63;\5\n\6\2\64;\5\f\7")
-        buf.write("\2\65;\5\16\b\2\66;\5\24\13\2\67;\5\26\f\28;\5\32\16\2")
-        buf.write("9;\5\34\17\2:\60\3\2\2\2:\61\3\2\2\2:\62\3\2\2\2:\63\3")
-        buf.write("\2\2\2:\64\3\2\2\2:\65\3\2\2\2:\66\3\2\2\2:\67\3\2\2\2")
-        buf.write(":8\3\2\2\2:9\3\2\2\2;\5\3\2\2\2<@\7\3\2\2=?\5\4\3\2>=")
-        buf.write("\3\2\2\2?B\3\2\2\2@>\3\2\2\2@A\3\2\2\2AC\3\2\2\2B@\3\2")
-        buf.write("\2\2CD\7\4\2\2DE\5(\25\2E\7\3\2\2\2FG\7\5\2\2GK\5(\25")
-        buf.write("\2HJ\5\4\3\2IH\3\2\2\2JM\3\2\2\2KI\3\2\2\2KL\3\2\2\2L")
-        buf.write("N\3\2\2\2MK\3\2\2\2NO\7\6\2\2O\t\3\2\2\2PQ\7\7\2\2QR\7")
-        buf.write("\65\2\2RS\7\b\2\2ST\5(\25\2TU\7\t\2\2UX\5(\25\2VW\7\n")
-        buf.write("\2\2WY\5(\25\2XV\3\2\2\2XY\3\2\2\2Y]\3\2\2\2Z\\\5\4\3")
-        buf.write("\2[Z\3\2\2\2\\_\3\2\2\2][\3\2\2\2]^\3\2\2\2^`\3\2\2\2")
-        buf.write("_]\3\2\2\2`a\7\13\2\2a\13\3\2\2\2bc\7\7\2\2cd\7\65\2\2")
-        buf.write("de\7\f\2\2ei\5(\25\2fh\5\4\3\2gf\3\2\2\2hk\3\2\2\2ig\3")
-        buf.write("\2\2\2ij\3\2\2\2jl\3\2\2\2ki\3\2\2\2lm\7\13\2\2m\r\3\2")
-        buf.write("\2\2no\7\r\2\2op\5(\25\2pt\7\16\2\2qs\5\4\3\2rq\3\2\2")
-        buf.write("\2sv\3\2\2\2tr\3\2\2\2tu\3\2\2\2uw\3\2\2\2vt\3\2\2\2w")
-        buf.write("x\7\17\2\2x\17\3\2\2\2yz\7\20\2\2z~\7\65\2\2{}\5\22\n")
-        buf.write("\2|{\3\2\2\2}\u0080\3\2\2\2~|\3\2\2\2~\177\3\2\2\2\177")
-        buf.write("\u0081\3\2\2\2\u0080~\3\2\2\2\u0081\u0082\7\21\2\2\u0082")
-        buf.write("\21\3\2\2\2\u0083\u0084\7\65\2\2\u0084\u0085\7\22\2\2")
-        buf.write("\u0085\u0086\7\65\2\2\u0086\23\3\2\2\2\u0087\u0088\7\23")
-        buf.write("\2\2\u0088\u0089\5(\25\2\u0089\u008d\7\16\2\2\u008a\u008c")
-        buf.write("\5\4\3\2\u008b\u008a\3\2\2\2\u008c\u008f\3\2\2\2\u008d")
-        buf.write("\u008b\3\2\2\2\u008d\u008e\3\2\2\2\u008e\u0090\3\2\2\2")
-        buf.write("\u008f\u008d\3\2\2\2\u0090\u0091\7\17\2\2\u0091\25\3\2")
-        buf.write("\2\2\u0092\u0096\7\24\2\2\u0093\u0095\5\4\3\2\u0094\u0093")
-        buf.write("\3\2\2\2\u0095\u0098\3\2\2\2\u0096\u0094\3\2\2\2\u0096")
-        buf.write("\u0097\3\2\2\2\u0097\u0099\3\2\2\2\u0098\u0096\3\2\2\2")
-        buf.write("\u0099\u009a\7\17\2\2\u009a\27\3\2\2\2\u009b\u009c\7\65")
-        buf.write("\2\2\u009c\31\3\2\2\2\u009d\u009e\7\25\2\2\u009e\u009f")
-        buf.write("\7\65\2\2\u009f\u00a8\7\26\2\2\u00a0\u00a5\5\30\r\2\u00a1")
-        buf.write("\u00a2\7\27\2\2\u00a2\u00a4\5\30\r\2\u00a3\u00a1\3\2\2")
-        buf.write("\2\u00a4\u00a7\3\2\2\2\u00a5\u00a3\3\2\2\2\u00a5\u00a6")
-        buf.write("\3\2\2\2\u00a6\u00a9\3\2\2\2\u00a7\u00a5\3\2\2\2\u00a8")
-        buf.write("\u00a0\3\2\2\2\u00a8\u00a9\3\2\2\2\u00a9\u00aa\3\2\2\2")
-        buf.write("\u00aa\u00ae\7\30\2\2\u00ab\u00ad\5\4\3\2\u00ac\u00ab")
-        buf.write("\3\2\2\2\u00ad\u00b0\3\2\2\2\u00ae\u00ac\3\2\2\2\u00ae")
-        buf.write("\u00af\3\2\2\2\u00af\u00b1\3\2\2\2\u00b0\u00ae\3\2\2\2")
-        buf.write("\u00b1\u00b2\7\31\2\2\u00b2\33\3\2\2\2\u00b3\u00b9\5&")
-        buf.write("\24\2\u00b4\u00b9\5$\23\2\u00b5\u00b9\5 \21\2\u00b6\u00b9")
-        buf.write("\5\36\20\2\u00b7\u00b9\5(\25\2\u00b8\u00b3\3\2\2\2\u00b8")
-        buf.write("\u00b4\3\2\2\2\u00b8\u00b5\3\2\2\2\u00b8\u00b6\3\2\2\2")
-        buf.write("\u00b8\u00b7\3\2\2\2\u00b9\35\3\2\2\2\u00ba\u00bb\7\32")
-        buf.write("\2\2\u00bb\u00bc\5(\25\2\u00bc\37\3\2\2\2\u00bd\u00be")
+        buf.write("\30\32\34\36 \"$&(\2\7\3\2\35\36\3\2\37\"\4\2\36\36##")
+        buf.write("\3\2$)\3\2*+\2\u0135\2-\3\2\2\2\4:\3\2\2\2\6<\3\2\2\2")
+        buf.write("\bF\3\2\2\2\nP\3\2\2\2\fb\3\2\2\2\16n\3\2\2\2\20y\3\2")
+        buf.write("\2\2\22\u0083\3\2\2\2\24\u0087\3\2\2\2\26\u0092\3\2\2")
+        buf.write("\2\30\u009b\3\2\2\2\32\u009d\3\2\2\2\34\u00b8\3\2\2\2")
+        buf.write("\36\u00ba\3\2\2\2 \u00bd\3\2\2\2\"\u00c0\3\2\2\2$\u00ce")
+        buf.write("\3\2\2\2&\u00da\3\2\2\2(\u00fd\3\2\2\2*,\5\4\3\2+*\3\2")
+        buf.write("\2\2,/\3\2\2\2-+\3\2\2\2-.\3\2\2\2.\3\3\2\2\2/-\3\2\2")
+        buf.write("\2\60;\5\20\t\2\61;\5\6\4\2\62;\5\b\5\2\63;\5\n\6\2\64")
+        buf.write(";\5\f\7\2\65;\5\16\b\2\66;\5\24\13\2\67;\5\26\f\28;\5")
+        buf.write("\32\16\29;\5\34\17\2:\60\3\2\2\2:\61\3\2\2\2:\62\3\2\2")
+        buf.write("\2:\63\3\2\2\2:\64\3\2\2\2:\65\3\2\2\2:\66\3\2\2\2:\67")
+        buf.write("\3\2\2\2:8\3\2\2\2:9\3\2\2\2;\5\3\2\2\2<@\7\3\2\2=?\5")
+        buf.write("\4\3\2>=\3\2\2\2?B\3\2\2\2@>\3\2\2\2@A\3\2\2\2AC\3\2\2")
+        buf.write("\2B@\3\2\2\2CD\7\4\2\2DE\5(\25\2E\7\3\2\2\2FG\7\5\2\2")
+        buf.write("GK\5(\25\2HJ\5\4\3\2IH\3\2\2\2JM\3\2\2\2KI\3\2\2\2KL\3")
+        buf.write("\2\2\2LN\3\2\2\2MK\3\2\2\2NO\7\6\2\2O\t\3\2\2\2PQ\7\7")
+        buf.write("\2\2QR\7\65\2\2RS\7\b\2\2ST\5(\25\2TU\7\t\2\2UX\5(\25")
+        buf.write("\2VW\7\n\2\2WY\5(\25\2XV\3\2\2\2XY\3\2\2\2Y]\3\2\2\2Z")
+        buf.write("\\\5\4\3\2[Z\3\2\2\2\\_\3\2\2\2][\3\2\2\2]^\3\2\2\2^`")
+        buf.write("\3\2\2\2_]\3\2\2\2`a\7\13\2\2a\13\3\2\2\2bc\7\7\2\2cd")
+        buf.write("\7\65\2\2de\7\f\2\2ei\5(\25\2fh\5\4\3\2gf\3\2\2\2hk\3")
+        buf.write("\2\2\2ig\3\2\2\2ij\3\2\2\2jl\3\2\2\2ki\3\2\2\2lm\7\13")
+        buf.write("\2\2m\r\3\2\2\2no\7\r\2\2op\5(\25\2pt\7\16\2\2qs\5\4\3")
+        buf.write("\2rq\3\2\2\2sv\3\2\2\2tr\3\2\2\2tu\3\2\2\2uw\3\2\2\2v")
+        buf.write("t\3\2\2\2wx\7\17\2\2x\17\3\2\2\2yz\7\20\2\2z~\7\65\2\2")
+        buf.write("{}\5\22\n\2|{\3\2\2\2}\u0080\3\2\2\2~|\3\2\2\2~\177\3")
+        buf.write("\2\2\2\177\u0081\3\2\2\2\u0080~\3\2\2\2\u0081\u0082\7")
+        buf.write("\21\2\2\u0082\21\3\2\2\2\u0083\u0084\7\65\2\2\u0084\u0085")
+        buf.write("\7\22\2\2\u0085\u0086\7\65\2\2\u0086\23\3\2\2\2\u0087")
+        buf.write("\u0088\7\23\2\2\u0088\u0089\5(\25\2\u0089\u008d\7\16\2")
+        buf.write("\2\u008a\u008c\5\4\3\2\u008b\u008a\3\2\2\2\u008c\u008f")
+        buf.write("\3\2\2\2\u008d\u008b\3\2\2\2\u008d\u008e\3\2\2\2\u008e")
+        buf.write("\u0090\3\2\2\2\u008f\u008d\3\2\2\2\u0090\u0091\7\17\2")
+        buf.write("\2\u0091\25\3\2\2\2\u0092\u0096\7\24\2\2\u0093\u0095\5")
+        buf.write("\4\3\2\u0094\u0093\3\2\2\2\u0095\u0098\3\2\2\2\u0096\u0094")
+        buf.write("\3\2\2\2\u0096\u0097\3\2\2\2\u0097\u0099\3\2\2\2\u0098")
+        buf.write("\u0096\3\2\2\2\u0099\u009a\7\17\2\2\u009a\27\3\2\2\2\u009b")
+        buf.write("\u009c\7\65\2\2\u009c\31\3\2\2\2\u009d\u009e\7\25\2\2")
+        buf.write("\u009e\u009f\7\65\2\2\u009f\u00a8\7\26\2\2\u00a0\u00a5")
+        buf.write("\5\30\r\2\u00a1\u00a2\7\27\2\2\u00a2\u00a4\5\30\r\2\u00a3")
+        buf.write("\u00a1\3\2\2\2\u00a4\u00a7\3\2\2\2\u00a5\u00a3\3\2\2\2")
+        buf.write("\u00a5\u00a6\3\2\2\2\u00a6\u00a9\3\2\2\2\u00a7\u00a5\3")
+        buf.write("\2\2\2\u00a8\u00a0\3\2\2\2\u00a8\u00a9\3\2\2\2\u00a9\u00aa")
+        buf.write("\3\2\2\2\u00aa\u00ae\7\30\2\2\u00ab\u00ad\5\4\3\2\u00ac")
+        buf.write("\u00ab\3\2\2\2\u00ad\u00b0\3\2\2\2\u00ae\u00ac\3\2\2\2")
+        buf.write("\u00ae\u00af\3\2\2\2\u00af\u00b1\3\2\2\2\u00b0\u00ae\3")
+        buf.write("\2\2\2\u00b1\u00b2\7\31\2\2\u00b2\33\3\2\2\2\u00b3\u00b9")
+        buf.write("\5&\24\2\u00b4\u00b9\5$\23\2\u00b5\u00b9\5 \21\2\u00b6")
+        buf.write("\u00b9\5\36\20\2\u00b7\u00b9\5(\25\2\u00b8\u00b3\3\2\2")
+        buf.write("\2\u00b8\u00b4\3\2\2\2\u00b8\u00b5\3\2\2\2\u00b8\u00b6")
+        buf.write("\3\2\2\2\u00b8\u00b7\3\2\2\2\u00b9\35\3\2\2\2\u00ba\u00bb")
+        buf.write("\7\32\2\2\u00bb\u00bc\5(\25\2\u00bc\37\3\2\2\2\u00bd\u00be")
         buf.write("\7\33\2\2\u00be\u00bf\5(\25\2\u00bf!\3\2\2\2\u00c0\u00c1")
         buf.write("\7\65\2\2\u00c1\u00ca\7\26\2\2\u00c2\u00c7\5(\25\2\u00c3")
         buf.write("\u00c4\7\27\2\2\u00c4\u00c6\5(\25\2\u00c5\u00c3\3\2\2")
@@ -104,21 +104,21 @@ def serializedATN():
         buf.write("\5(\25\2\u00d2\u00d0\3\2\2\2\u00d3\u00d6\3\2\2\2\u00d4")
         buf.write("\u00d2\3\2\2\2\u00d4\u00d5\3\2\2\2\u00d5\u00d8\3\2\2\2")
         buf.write("\u00d6\u00d4\3\2\2\2\u00d7\u00cf\3\2\2\2\u00d7\u00d8\3")
-        buf.write("\2\2\2\u00d8%\3\2\2\2\u00d9\u00db\7\35\2\2\u00da\u00d9")
+        buf.write("\2\2\2\u00d8%\3\2\2\2\u00d9\u00db\7\64\2\2\u00da\u00d9")
         buf.write("\3\2\2\2\u00da\u00db\3\2\2\2\u00db\u00de\3\2\2\2\u00dc")
         buf.write("\u00df\7\65\2\2\u00dd\u00df\5(\25\2\u00de\u00dc\3\2\2")
         buf.write("\2\u00de\u00dd\3\2\2\2\u00df\u00e0\3\2\2\2\u00e0\u00e1")
         buf.write("\7\b\2\2\u00e1\u00e2\5(\25\2\u00e2\'\3\2\2\2\u00e3\u00e4")
         buf.write("\b\25\1\2\u00e4\u00e5\t\2\2\2\u00e5\u00fe\5(\25\22\u00e6")
         buf.write("\u00e7\7\26\2\2\u00e7\u00e8\5(\25\2\u00e8\u00e9\7\30\2")
-        buf.write("\2\u00e9\u00fe\3\2\2\2\u00ea\u00ec\7-\2\2\u00eb\u00ed")
+        buf.write("\2\u00e9\u00fe\3\2\2\2\u00ea\u00ec\7,\2\2\u00eb\u00ed")
         buf.write("\5(\25\2\u00ec\u00eb\3\2\2\2\u00ec\u00ed\3\2\2\2\u00ed")
         buf.write("\u00f2\3\2\2\2\u00ee\u00ef\7\27\2\2\u00ef\u00f1\5(\25")
         buf.write("\2\u00f0\u00ee\3\2\2\2\u00f1\u00f4\3\2\2\2\u00f2\u00f0")
         buf.write("\3\2\2\2\u00f2\u00f3\3\2\2\2\u00f3\u00f5\3\2\2\2\u00f4")
-        buf.write("\u00f2\3\2\2\2\u00f5\u00fe\7.\2\2\u00f6\u00fe\5\"\22\2")
-        buf.write("\u00f7\u00fe\7\60\2\2\u00f8\u00fe\7\67\2\2\u00f9\u00fe")
-        buf.write("\7\66\2\2\u00fa\u00fe\7\63\2\2\u00fb\u00fe\7\64\2\2\u00fc")
+        buf.write("\u00f2\3\2\2\2\u00f5\u00fe\7-\2\2\u00f6\u00fe\5\"\22\2")
+        buf.write("\u00f7\u00fe\7/\2\2\u00f8\u00fe\7\67\2\2\u00f9\u00fe\7")
+        buf.write("\66\2\2\u00fa\u00fe\7\62\2\2\u00fb\u00fe\7\63\2\2\u00fc")
         buf.write("\u00fe\7\65\2\2\u00fd\u00e3\3\2\2\2\u00fd\u00e6\3\2\2")
         buf.write("\2\u00fd\u00ea\3\2\2\2\u00fd\u00f6\3\2\2\2\u00fd\u00f7")
         buf.write("\3\2\2\2\u00fd\u00f8\3\2\2\2\u00fd\u00f9\3\2\2\2\u00fd")
@@ -128,9 +128,9 @@ def serializedATN():
         buf.write("\u0104\t\4\2\2\u0104\u0114\5(\25\21\u0105\u0106\f\17\2")
         buf.write("\2\u0106\u0107\t\5\2\2\u0107\u0114\5(\25\20\u0108\u0109")
         buf.write("\f\16\2\2\u0109\u010a\t\6\2\2\u010a\u0114\5(\25\17\u010b")
-        buf.write("\u010c\f\r\2\2\u010c\u010d\7-\2\2\u010d\u010e\5(\25\2")
-        buf.write("\u010e\u010f\7.\2\2\u010f\u0114\3\2\2\2\u0110\u0111\f")
-        buf.write("\t\2\2\u0111\u0112\7/\2\2\u0112\u0114\7\65\2\2\u0113\u00ff")
+        buf.write("\u010c\f\r\2\2\u010c\u010d\7,\2\2\u010d\u010e\5(\25\2")
+        buf.write("\u010e\u010f\7-\2\2\u010f\u0114\3\2\2\2\u0110\u0111\f")
+        buf.write("\t\2\2\u0111\u0112\7.\2\2\u0112\u0114\7\65\2\2\u0113\u00ff")
         buf.write("\3\2\2\2\u0113\u0102\3\2\2\2\u0113\u0105\3\2\2\2\u0113")
         buf.write("\u0108\3\2\2\2\u0113\u010b\3\2\2\2\u0113\u0110\3\2\2\2")
         buf.write("\u0114\u0117\3\2\2\2\u0115\u0113\3\2\2\2\u0115\u0116\3")
@@ -155,10 +155,11 @@ class pseudoParser ( Parser ):
                      "'IF'", "'THEN'", "'ENDIF'", "'RECORD'", "'ENDRECORD'", 
                      "':'", "'ELSE IF'", "'ELSE'", "'SUBROUTINE'", "'('", 
                      "','", "')'", "'ENDSUBROUTINE'", "'reveal_type'", "'RETURN'", 
-                     "'OUTPUT'", "'CONSTANT'", "'NOT'", "'-'", "'MOD'", 
-                     "'DIV'", "'*'", "'/'", "'+'", "'<'", "'>'", "'='", 
-                     "'\u2260'", "'\u2264'", "'\u2265'", "'AND'", "'OR'", 
-                     "'['", "']'", "'.'", "'USERINPUT'" ]
+                     "'OUTPUT'", "'NOT'", "'-'", "'MOD'", "'DIV'", "'*'", 
+                     "'/'", "'+'", "'<'", "'>'", "'='", "'\u2260'", "'\u2264'", 
+                     "'\u2265'", "'AND'", "'OR'", "'['", "']'", "'.'", "'USERINPUT'", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "'CONSTANT'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
@@ -171,8 +172,8 @@ class pseudoParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "COMMENT", 
-                      "WS", "BOOL", "STRING", "IDENTIFIER", "FLOAT", "INT", 
+                      "<INVALID>", "<INVALID>", "COMMENT", "WS", "BOOL", 
+                      "STRING", "CONSTANT", "IDENTIFIER", "FLOAT", "INT", 
                       "DIGIT", "LETTER" ]
 
     RULE_prog = 0
@@ -248,11 +249,11 @@ class pseudoParser ( Parser ):
     T__42=43
     T__43=44
     T__44=45
-    T__45=46
-    COMMENT=47
-    WS=48
-    BOOL=49
-    STRING=50
+    COMMENT=46
+    WS=47
+    BOOL=48
+    STRING=49
+    CONSTANT=50
     IDENTIFIER=51
     FLOAT=52
     INT=53
@@ -304,7 +305,7 @@ class pseudoParser ( Parser ):
             self.state = 43
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__28) | (1 << pseudoParser.T__42) | (1 << pseudoParser.T__45) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.CONSTANT) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 40
                 self.block()
                 self.state = 45
@@ -499,7 +500,7 @@ class pseudoParser ( Parser ):
             self.state = 62
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__28) | (1 << pseudoParser.T__42) | (1 << pseudoParser.T__45) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.CONSTANT) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 59
                 self.block()
                 self.state = 64
@@ -563,7 +564,7 @@ class pseudoParser ( Parser ):
             self.state = 73
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__28) | (1 << pseudoParser.T__42) | (1 << pseudoParser.T__45) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.CONSTANT) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 70
                 self.block()
                 self.state = 75
@@ -650,7 +651,7 @@ class pseudoParser ( Parser ):
             self.state = 91
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__28) | (1 << pseudoParser.T__42) | (1 << pseudoParser.T__45) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.CONSTANT) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 88
                 self.block()
                 self.state = 93
@@ -720,7 +721,7 @@ class pseudoParser ( Parser ):
             self.state = 103
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__28) | (1 << pseudoParser.T__42) | (1 << pseudoParser.T__45) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.CONSTANT) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 100
                 self.block()
                 self.state = 105
@@ -784,7 +785,7 @@ class pseudoParser ( Parser ):
             self.state = 114
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__28) | (1 << pseudoParser.T__42) | (1 << pseudoParser.T__45) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.CONSTANT) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 111
                 self.block()
                 self.state = 116
@@ -955,7 +956,7 @@ class pseudoParser ( Parser ):
             self.state = 139
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__28) | (1 << pseudoParser.T__42) | (1 << pseudoParser.T__45) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.CONSTANT) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 136
                 self.block()
                 self.state = 141
@@ -1011,7 +1012,7 @@ class pseudoParser ( Parser ):
             self.state = 148
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__28) | (1 << pseudoParser.T__42) | (1 << pseudoParser.T__45) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.CONSTANT) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 145
                 self.block()
                 self.state = 150
@@ -1143,7 +1144,7 @@ class pseudoParser ( Parser ):
             self.state = 172
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__28) | (1 << pseudoParser.T__42) | (1 << pseudoParser.T__45) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__0) | (1 << pseudoParser.T__2) | (1 << pseudoParser.T__4) | (1 << pseudoParser.T__10) | (1 << pseudoParser.T__13) | (1 << pseudoParser.T__16) | (1 << pseudoParser.T__17) | (1 << pseudoParser.T__18) | (1 << pseudoParser.T__19) | (1 << pseudoParser.T__23) | (1 << pseudoParser.T__24) | (1 << pseudoParser.T__25) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.CONSTANT) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 169
                 self.block()
                 self.state = 174
@@ -1375,7 +1376,7 @@ class pseudoParser ( Parser ):
             self.state = 200
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__19) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__28) | (1 << pseudoParser.T__42) | (1 << pseudoParser.T__45) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__19) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                 self.state = 192
                 self.expr(0)
                 self.state = 197
@@ -1484,6 +1485,9 @@ class pseudoParser ( Parser ):
         def IDENTIFIER(self):
             return self.getToken(pseudoParser.IDENTIFIER, 0)
 
+        def CONSTANT(self):
+            return self.getToken(pseudoParser.CONSTANT, 0)
+
         def getRuleIndex(self):
             return pseudoParser.RULE_variable_assignment
 
@@ -1506,9 +1510,9 @@ class pseudoParser ( Parser ):
             self.state = 216
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==pseudoParser.T__26:
+            if _la==pseudoParser.CONSTANT:
                 self.state = 215
-                self.match(pseudoParser.T__26)
+                self.match(pseudoParser.CONSTANT)
 
 
             self.state = 220
@@ -1802,7 +1806,7 @@ class pseudoParser ( Parser ):
                 self.state = 226
                 localctx.op = self._input.LT(1)
                 _la = self._input.LA(1)
-                if not(_la==pseudoParser.T__27 or _la==pseudoParser.T__28):
+                if not(_la==pseudoParser.T__26 or _la==pseudoParser.T__27):
                     localctx.op = self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
@@ -1828,11 +1832,11 @@ class pseudoParser ( Parser ):
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 232
-                self.match(pseudoParser.T__42)
+                self.match(pseudoParser.T__41)
                 self.state = 234
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__19) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__28) | (1 << pseudoParser.T__42) | (1 << pseudoParser.T__45) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__19) | (1 << pseudoParser.T__26) | (1 << pseudoParser.T__27) | (1 << pseudoParser.T__41) | (1 << pseudoParser.T__44) | (1 << pseudoParser.BOOL) | (1 << pseudoParser.STRING) | (1 << pseudoParser.IDENTIFIER) | (1 << pseudoParser.FLOAT) | (1 << pseudoParser.INT))) != 0):
                     self.state = 233
                     self.expr(0)
 
@@ -1850,7 +1854,7 @@ class pseudoParser ( Parser ):
                     _la = self._input.LA(1)
 
                 self.state = 243
-                self.match(pseudoParser.T__43)
+                self.match(pseudoParser.T__42)
                 pass
 
             elif la_ == 4:
@@ -1866,7 +1870,7 @@ class pseudoParser ( Parser ):
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 245
-                self.match(pseudoParser.T__45)
+                self.match(pseudoParser.T__44)
                 pass
 
             elif la_ == 6:
@@ -1932,7 +1936,7 @@ class pseudoParser ( Parser ):
                         self.state = 254
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__29) | (1 << pseudoParser.T__30) | (1 << pseudoParser.T__31) | (1 << pseudoParser.T__32))) != 0)):
+                        if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__28) | (1 << pseudoParser.T__29) | (1 << pseudoParser.T__30) | (1 << pseudoParser.T__31))) != 0)):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self._errHandler.reportMatch(self)
@@ -1951,7 +1955,7 @@ class pseudoParser ( Parser ):
                         self.state = 257
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not(_la==pseudoParser.T__28 or _la==pseudoParser.T__33):
+                        if not(_la==pseudoParser.T__27 or _la==pseudoParser.T__32):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self._errHandler.reportMatch(self)
@@ -1970,7 +1974,7 @@ class pseudoParser ( Parser ):
                         self.state = 260
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__34) | (1 << pseudoParser.T__35) | (1 << pseudoParser.T__36) | (1 << pseudoParser.T__37) | (1 << pseudoParser.T__38) | (1 << pseudoParser.T__39))) != 0)):
+                        if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << pseudoParser.T__33) | (1 << pseudoParser.T__34) | (1 << pseudoParser.T__35) | (1 << pseudoParser.T__36) | (1 << pseudoParser.T__37) | (1 << pseudoParser.T__38))) != 0)):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self._errHandler.reportMatch(self)
@@ -1989,7 +1993,7 @@ class pseudoParser ( Parser ):
                         self.state = 263
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not(_la==pseudoParser.T__40 or _la==pseudoParser.T__41):
+                        if not(_la==pseudoParser.T__39 or _la==pseudoParser.T__40):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self._errHandler.reportMatch(self)
@@ -2006,11 +2010,11 @@ class pseudoParser ( Parser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 11)")
                         self.state = 266
-                        self.match(pseudoParser.T__42)
+                        self.match(pseudoParser.T__41)
                         self.state = 267
                         self.expr(0)
                         self.state = 268
-                        self.match(pseudoParser.T__43)
+                        self.match(pseudoParser.T__42)
                         pass
 
                     elif la_ == 6:
@@ -2021,7 +2025,7 @@ class pseudoParser ( Parser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 7)")
                         self.state = 271
-                        self.match(pseudoParser.T__44)
+                        self.match(pseudoParser.T__43)
                         self.state = 272
                         self.match(pseudoParser.IDENTIFIER)
                         pass

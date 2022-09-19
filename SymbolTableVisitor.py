@@ -1,14 +1,27 @@
 from typing import Callable, Any
 
+import Errors
 import Operations
 from SymbolTable import SymbolTable
 from gen.pseudoVisitor import pseudoVisitor
 from gen.pseudoParser import pseudoParser
 from Errors import *
-from Variable import Variable
+from Variable import Variable, ConstVariable
 from Function import Function
 import Types
 from antlr4 import *
+import copy
+
+
+class Reference:
+    def __init__(self, val):
+        self._value = val  # just refers to val, no copy
+
+    def get(self):
+        return self._value
+
+    def set(self, val):
+        self._value = val
 
 
 def ErrorManage(func: Callable[[pseudoVisitor, ParserRuleContext], Any]):
@@ -35,14 +48,13 @@ class SymbolTableVisitor(pseudoVisitor):
     def destroy_scope(self) -> None:
         self.symbol_table.destroy_scope()
 
-    @ErrorManage
     def visitVariable(self, ctx: pseudoParser.VariableContext) -> Types.Type:
         name = ctx.getText()
         var = self.symbol_table.find_var(name)
         if not var: raise VariableNotDefined(name)
-        return var.type
+        return Types.VariableReferenceType(name, self.symbol_table)
+        # return_type = Types.String
 
-    @ErrorManage
     def visitFunction_call(self, ctx: pseudoParser.Function_callContext):
         name = ctx.IDENTIFIER().getText()
         func = self.symbol_table.find_func(name)
@@ -57,26 +69,32 @@ class SymbolTableVisitor(pseudoVisitor):
         if isinstance(_type, Types.UserDefinedType):
             field_types = list(_type.fields.items())
             if len(argument_types) != len(field_types):
-                raise CustomError(f"Wrong number arguments for record {_type.name}")
+                raise CustomError(f"Wrong number arguments for record {_type.getName()}")
             for i in range(len(argument_types)):
                 if argument_types[i] != field_types[i][1]:
                     raise CustomError(
-                        f"Wrong type in call to constructor for record {_type.name}, for field {field_types[i][0]}.")
+                        f"Wrong type in call to constructor for record {_type.getName()}, for field {field_types[i][0]}.")
 
         elif isinstance(_type, Types.PrimitiveType):
             if len(argument_types) > 1:
-                raise CustomError(f"Wrong number arguments to initialize type {_type.name}")
+                raise CustomError(f"Wrong number arguments to initialize type {_type.getName()}")
         return _type
 
     def visitVariable_assignment(self, ctx: pseudoParser.Variable_assignmentContext) -> None:
         if ctx.IDENTIFIER():
             name = ctx.IDENTIFIER().getText()
             variable = self.symbol_table.find_var(name)
-            expr = self.visit(ctx.expr()[0])
-            if not variable:
+            expr = self.visit(ctx.expr()[0]).getUnderlyingType()
+            if not variable and not ctx.CONSTANT():
                 self.symbol_table.add_var(Variable(name, expr))
+            elif not variable:
+                self.symbol_table.add_var(ConstVariable(name, expr))
             else:
-                variable.type = expr
+                variable.assign(expr)
+        else:
+            lhs = self.visit(ctx.expr()[0])
+            rhs = self.visit(ctx.expr()[1])
+            lhs.assign(rhs)
 
     @ErrorManage
     def visitSubroutine(self, ctx: pseudoParser.SubroutineContext) -> None:
@@ -143,7 +161,7 @@ class SymbolTableVisitor(pseudoVisitor):
 
     def visitReveal_type(self, ctx: pseudoParser.Reveal_typeContext):
         expr = self.visit(ctx.expr())
-        print(expr.name)
+        print(expr.getName())
 
     def visitInt(self, ctx: pseudoParser.IntContext):
         return Types.Int
@@ -155,12 +173,12 @@ class SymbolTableVisitor(pseudoVisitor):
         return Types.Bool
 
     def visitString(self, ctx: pseudoParser.StringContext):
+        if len(ctx.getText()) == 3: return Types.Char
         return Types.String
 
-    @ErrorManage
     def visitBinary_expr(self, ctx: pseudoParser.Binary_exprContext):
-        lhs = self.visit(ctx.expr()[0])
-        rhs = self.visit(ctx.expr()[1])
+        lhs = self.visit(ctx.expr()[0]).getUnderlyingType()
+        rhs = self.visit(ctx.expr()[1]).getUnderlyingType()
         operand = ctx.op.text
         dict_of_operations = {
             '+': Operations.add,
@@ -180,7 +198,6 @@ class SymbolTableVisitor(pseudoVisitor):
         }
         return dict_of_operations[operand](lhs, rhs)
 
-    @ErrorManage
     def visitUnary_expr(self, ctx: pseudoParser.Unary_exprContext):
         arg = self.visit(ctx.expr())
         operand = ctx.op.text
@@ -191,17 +208,42 @@ class SymbolTableVisitor(pseudoVisitor):
         }
         return dict_of_operations[operand](arg)
 
-    @ErrorManage
     def visitField_access(self, ctx: pseudoParser.Field_accessContext):
-        _object = self.visit(ctx.expr())
+        _object = self.visit(ctx.expr()).getUnderlyingType()
         field_name = ctx.IDENTIFIER().getText()
+
         @Operations.Unionize
         def getField(_type):
             return_type = _type.getField(field_name)
-            if return_type is None: raise CustomError(f"Type  {_type.name} does not have field {field_name}.")
+            if return_type is None: raise CustomError(f"Type  {_type.getName()} does not have field {field_name}.")
             return return_type
 
-        return getField(_object)
+        return Types.FieldAccess(field_name, getField(_object))
 
     def visitParenthesis_expr(self, ctx: pseudoParser.Parenthesis_exprContext):
         return self.visit(ctx.expr())
+
+    @ErrorManage
+    def visitStat(self, ctx: pseudoParser.StatContext):
+        return self.visitChildren(ctx)
+
+    def visitArray_expr(self, ctx: pseudoParser.Array_exprContext):
+        expr_set = Types.remove_duplicates([self.visit(expression).getUnderlyingType() for expression in ctx.expr()])
+        if len(expr_set) == 1:
+            return Types.ArrayType(expr_set.pop())
+        else:
+            return Types.ArrayType(Types.UnionType(expr_set))
+
+    def visitIndex_expr(self, ctx: pseudoParser.Index_exprContext):
+        first_expr = self.visit(ctx.expr()[0])
+        second_expr = self.visit(ctx.expr()[1])
+
+        if second_expr != Types.Int:
+            raise Errors.CustomError(
+                f"Indexing only supported with type Integer, not with type {second_expr.getName()}")
+
+        if first_expr.getUnderlyingType() == Types.String:
+            return Types.ReferenceType(Types.Char)  # type: ignore
+
+        getElement = first_expr.getElement()
+        return getElement

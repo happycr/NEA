@@ -6,14 +6,13 @@ from Scope import Scope
 from Variable import Variable
 from Function import Function
 from Scope import Scope
-from Types import Type
 
 
 class SymbolTable:
     def __init__(self):
         self.scopes: [Scope] = []
         self.functions: {str: Function} = {}
-        self.types: {str: Type} = {_type.name: _type for _type in Types.primitive_types}
+        self.types: {str: Types.Type} = {_type.name: _type for _type in Types.primitive_types}
         self.create_scope()
 
     def add_var(self, variable: Variable) -> SymbolTable:
@@ -34,7 +33,7 @@ class SymbolTable:
     def destroy_scope(self) -> None:
         self.scopes.pop()
 
-    def find_var(self, name: str) -> None | Variable:
+    def find_var(self, name: str) -> None | Variable:  # type: ignore
         for scope in self.scopes[::-1]:
             var = scope.find_var(name)
             if var: return var

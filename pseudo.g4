@@ -23,7 +23,7 @@ return_stat: 'RETURN' expr;
 function_call: IDENTIFIER '(' (expr (',' expr)*)? ')';
 output: 'OUTPUT' (expr (',' expr)*)? ;
 COMMENT : '#' ~('\r'|'\n')* -> skip ;
-variable_assignment: 'CONSTANT'? (IDENTIFIER | expr) '<-' expr ;
+variable_assignment: CONSTANT? (IDENTIFIER | expr) '<-' expr ;
 expr: op=  ('NOT' | '-') expr  #unary_expr
      |expr op= ('MOD' | 'DIV' | '*' | '/') expr #binary_expr
     | expr op = ('+' | '-') expr #binary_expr
@@ -46,6 +46,8 @@ expr: op=  ('NOT' | '-') expr  #unary_expr
 WS : (' '|'\t'|'\r'|'\n')+ -> skip ;
 BOOL: 'True' | 'False' ;
 STRING: '"' .*? '"' ;
+
+CONSTANT: 'CONSTANT';
 IDENTIFIER: LETTER  (LETTER | '_' | INT | FLOAT)* ;
 /* Float Literal*/
 FLOAT: ('.' INT+) | (INT '.' INT) ;
@@ -55,3 +57,4 @@ INT: DIGIT+ ;
 DIGIT: [0-9] ;
 /* Letter */
 LETTER : [a-zA-Z];
+
