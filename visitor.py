@@ -5,6 +5,8 @@ from gen.pseudoParser import pseudoParser
 from GenericVisitor import GenericVisitor
 import Operations
 from record import Record
+
+
 # TO DO PUT IN A CLASS
 
 
@@ -74,6 +76,7 @@ class Visitor(pseudoVisitor, GenericVisitor):
         header = "else:\n"
         self.create_scope()
         body = self.visit_list(ctx.block())
+        if not body: body = self.indent("pass")
         self.destroy_scope()
         return header + body
 
@@ -81,6 +84,7 @@ class Visitor(pseudoVisitor, GenericVisitor):
         header = f"elif {self.visit(ctx.expr())}:\n"
         self.create_scope()
         body = self.visit_list(ctx.block())
+        if not body: body = self.indent("pass")
         self.destroy_scope()
         return header + body
 
@@ -88,6 +92,7 @@ class Visitor(pseudoVisitor, GenericVisitor):
         header = f"if {self.visit(ctx.expr())}:\n"
         self.create_scope()
         body = self.visit_list(ctx.block())
+        if not body: body = self.indent("pass")
         self.destroy_scope()
         return header + body
 
@@ -98,6 +103,7 @@ class Visitor(pseudoVisitor, GenericVisitor):
         header = f"for {ctx.IDENTIFIER().getText()} in {self.visit(ctx.expr())}:\n"
         self.create_scope()
         body = self.visit_list(ctx.block())
+        if not body: body = self.indent("pass")
         self.destroy_scope()
         return header + body
 
@@ -112,6 +118,7 @@ class Visitor(pseudoVisitor, GenericVisitor):
             header = f"for {ctx.IDENTIFIER().getText()} in range({start}, {end}):\n"
         self.create_scope()
         body = self.visit_list(ctx.block())
+        if not body: body = self.indent("pass")
         self.destroy_scope()
         return header + body
 
@@ -125,11 +132,16 @@ class Visitor(pseudoVisitor, GenericVisitor):
     def visitFunction_call(self, ctx: pseudoParser.Function_callContext):
         function_call_name = ctx.IDENTIFIER().getText()
         match function_call_name:
-            case "Integer": function_call_name = "int"
-            case "String": function_call_name = "str"
-            case "Real": function_call_name = "float"
-            case "Bool": function_call_name = "bool"
-            case _: pass
+            case "Integer":
+                function_call_name = "int"
+            case "String":
+                function_call_name = "str"
+            case "Real":
+                function_call_name = "float"
+            case "Bool":
+                function_call_name = "bool"
+            case _:
+                pass
 
         return f"{function_call_name}({self.visit_list(ctx.expr(), sep=', ')})"
 
@@ -151,6 +163,7 @@ class Visitor(pseudoVisitor, GenericVisitor):
         while_loop_header = f"while {self.visit(ctx.expr())}:\n"
         self.create_scope()
         body = self.visit_list(ctx.block(), sep='')
+        if not body: body = self.indent("pass")
         self.destroy_scope()
         return while_loop_header + body
 
@@ -163,7 +176,9 @@ class Visitor(pseudoVisitor, GenericVisitor):
     def visitRepeat_until(self, ctx: pseudoParser.Repeat_untilContext):
         condition = self.visit(ctx.expr())
         self.create_scope()
-        body = self.visit_list(ctx.block(), sep='\n') + '\n' + self.indent(f"if {condition}:\n") + self.indent(
+        blocks = self.visit_list(ctx.block(), sep='\n')
+        if not blocks: blocks = self.indent("pass")
+        body = blocks + '\n' + self.indent(f"if {condition}:\n") + self.indent(
             "    break")
         self.destroy_scope()
         return "while True:\n" + body
@@ -178,5 +193,8 @@ class Visitor(pseudoVisitor, GenericVisitor):
         child = node.getChild(0)
         return self.visit(child)
 
-    def visitReveal_type(self, ctx:pseudoParser.Reveal_typeContext):
+    def visitReveal_type(self, ctx: pseudoParser.Reveal_typeContext):
         return ""
+
+    def visitCondition_sequence(self, ctx:pseudoParser.Condition_sequenceContext):
+        return self.visit_list(ctx.children)

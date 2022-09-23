@@ -1,26 +1,10 @@
 import Types
-import itertools
-import Types
 from Errors import CustomError
-
-
-def CartesianProduct(*args):
-    for i in itertools.product(*args):
-        yield i
-
-
-def Unionize(func):
-    def inner(*args):
-        list_of_types = [x for x in CartesianProduct(*args)]
-        if len(list_of_types) == 1:
-            return func(*list_of_types[0])
-        else:
-            return Types.UnionType([func(*x) for x in list_of_types])
-    return inner
+from Util import Unionize
 
 
 @Unionize
-def add(x: Types.Type, y: Types.Type) -> Types.Type:
+def add(x: Types.Type, y: Types.Type) -> Types.Type:  # type: ignore
     match (x, y):
         case (Types.Int, Types.Int): return Types.Int
         case (Types.Int, Types.Real): return Types.Real
@@ -31,7 +15,7 @@ def add(x: Types.Type, y: Types.Type) -> Types.Type:
 
 
 @Unionize
-def multiply(x: Types.Type, y: Types.Type) -> Types.Type:
+def multiply(x: Types.Type, y: Types.Type) -> Types.Type:  # type: ignore
     match (x,y):
         case (Types.Int, Types.Int): return Types.Int
         case (Types.Int, Types.Real): return Types.Real

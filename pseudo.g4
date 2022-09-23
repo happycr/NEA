@@ -3,12 +3,13 @@ options {
   language = Python3;
 }
 prog: (block)* ;
-block: record| repeat_until | while_loop |for_loop_step | for_loop| if_block | else_if_block | else_block| subroutine | stat;
+block: record| repeat_until | while_loop |for_loop_step | for_loop| condition_sequence | subroutine | stat;
 
 repeat_until: 'REPEAT' block* 'UNTIL' expr;
 while_loop: 'WHILE' expr block* 'ENDWHILE';
 for_loop_step: 'FOR' IDENTIFIER '<-' expr 'TO' expr   ('STEP' step = expr)? block* 'ENDFOR';
 for_loop: 'FOR' IDENTIFIER 'IN' expr (block*) 'ENDFOR';
+condition_sequence: if_block (else_if_block)* else_block?;
 if_block: 'IF' expr 'THEN' block* 'ENDIF' ;
 record: 'RECORD'  IDENTIFIER (field)* 'ENDRECORD';
 field: IDENTIFIER ':'   IDENTIFIER;
@@ -41,8 +42,6 @@ expr: op=  ('NOT' | '-') expr  #unary_expr
     | STRING #string
     | IDENTIFIER #variable
     ;
-
-
 WS : (' '|'\t'|'\r'|'\n')+ -> skip ;
 BOOL: 'True' | 'False' ;
 STRING: '"' .*? '"' ;

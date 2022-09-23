@@ -39,6 +39,11 @@ class pseudoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by pseudoParser#condition_sequence.
+    def visitCondition_sequence(self, ctx:pseudoParser.Condition_sequenceContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by pseudoParser#if_block.
     def visitIf_block(self, ctx:pseudoParser.If_blockContext):
         return self.visitChildren(ctx)

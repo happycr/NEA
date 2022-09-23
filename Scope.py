@@ -13,7 +13,7 @@ class Scope:
         self.variables.append(variable)
         return self
 
-    def find_var(self, name: str) -> Variable | None:
+    def find_var(self, name: str) -> Variable | None:  # type: ignore
         for var in self.variables:
             if var.name == name:
                 return var

@@ -2,7 +2,9 @@ from typing import Callable, Any
 
 import Errors
 import Operations
-from SymbolTable import SymbolTable
+import Util
+import StackTrace
+from SymbolTable import SymbolTable, Branch
 from gen.pseudoVisitor import pseudoVisitor
 from gen.pseudoParser import pseudoParser
 from Errors import *
@@ -11,19 +13,6 @@ from Function import Function
 import Types
 from antlr4 import *
 import copy
-
-
-class Reference:
-    def __init__(self, val):
-        self._value = val  # just refers to val, no copy
-
-    def get(self):
-        return self._value
-
-    def set(self, val):
-        self._value = val
-
-
 def ErrorManage(func: Callable[[pseudoVisitor, ParserRuleContext], Any]):
     def inner(self, ctx):
         try:
@@ -41,6 +30,8 @@ class SymbolTableVisitor(pseudoVisitor):
     def __init__(self):
         super().__init__()
         self.symbol_table = SymbolTable()
+        self.stack_trace = StackTrace.StackTrace()
+        self.current_branch = self.symbol_table
 
     def create_scope(self) -> None:
         self.symbol_table.create_scope()
@@ -51,9 +42,14 @@ class SymbolTableVisitor(pseudoVisitor):
     def visitVariable(self, ctx: pseudoParser.VariableContext) -> Types.Type:
         name = ctx.getText()
         var = self.symbol_table.find_var(name)
+        index = self.symbol_table.getIndex(name)
         if not var: raise VariableNotDefined(name)
-        return Types.VariableReferenceType(name, self.symbol_table)
+        return Types.VariableReferenceType(name, self.symbol_table, index)
         # return_type = Types.String
+
+    def visitSubroutineAtCallTime(self, ctx: pseudoParser.SubroutineContext):
+        for i in ctx.block():
+            self.visit(i)
 
     def visitFunction_call(self, ctx: pseudoParser.Function_callContext):
         name = ctx.IDENTIFIER().getText()
@@ -63,6 +59,12 @@ class SymbolTableVisitor(pseudoVisitor):
 
         if not func: raise FunctionNotDefined(name)
         if len(ctx.expr()) != len(func.getArgs()): raise WrongNumberOfArguments(ctx)
+        arguments = [self.visit(arg) for arg in ctx.expr()]
+        self.create_scope()
+        self.current_branch.create_frame(arguments, func)
+        self.visitSubroutineAtCallTime(func.ctx)
+        return_type = self.current_branch.destroy_frame()
+        return return_type
 
     def visitConstructorCall(self, _type: Types.Type, arguments):
         argument_types = [self.visit(arg) for arg in arguments]
@@ -83,12 +85,12 @@ class SymbolTableVisitor(pseudoVisitor):
     def visitVariable_assignment(self, ctx: pseudoParser.Variable_assignmentContext) -> None:
         if ctx.IDENTIFIER():
             name = ctx.IDENTIFIER().getText()
-            variable = self.symbol_table.find_var(name)
+            variable = self.current_branch.find_var(name)
             expr = self.visit(ctx.expr()[0]).getUnderlyingType()
             if not variable and not ctx.CONSTANT():
-                self.symbol_table.add_var(Variable(name, expr))
+                self.current_branch.add_var(Variable(name, expr))
             elif not variable:
-                self.symbol_table.add_var(ConstVariable(name, expr))
+                self.current_branch.add_var(ConstVariable(name, expr))
             else:
                 variable.assign(expr)
         else:
@@ -103,36 +105,64 @@ class SymbolTableVisitor(pseudoVisitor):
         if func: raise FunctionAlreadyDefined(name)
         self.symbol_table.add_func(Function(ctx))
 
-    def visitIf_block(self, ctx: pseudoParser.If_blockContext) -> None:
-        self.create_scope()
-        self.visitChildren(ctx)
-        self.destroy_scope()
+    def visitCondition_sequence(self, ctx:pseudoParser.Condition_sequenceContext):
+        parent_branch = self.current_branch
+        branches = []
+        for block in ctx.getChildren():
+            branch = self.visit(block)
+            self.current_branch = parent_branch
+            branches.append(branch)
+        for branch in branches:
+            branch.destroy(parent_branch)
 
+
+    @ErrorManage
+    def visitIf_block(self, ctx: pseudoParser.If_blockContext) -> Branch:
+        self.current_branch = Branch(self.current_branch)
+        self.visitChildren(ctx)
+        return self.current_branch
+
+
+    def visitElse_block(self, ctx: pseudoParser.Else_blockContext):
+        self.current_branch = Branch(self.current_branch)
+        self.visitChildren(ctx)
+        return self.current_branch
+
+    @ErrorManage
+    def visitElse_if_block(self, ctx: pseudoParser.Else_if_blockContext):
+        self.current_branch = Branch(self.current_branch)
+        self.visitChildren(ctx)
+        return self.current_branch
+
+    @ErrorManage
     def visitFor_loop(self, ctx: pseudoParser.For_loopContext):
         self.create_scope()
         self.visitChildren(ctx)
         self.destroy_scope()
 
-    def visitElse_block(self, ctx: pseudoParser.Else_blockContext):
-        self.create_scope()
-        self.visitChildren(ctx)
-        self.destroy_scope()
-
-    def visitElse_if_block(self, ctx: pseudoParser.Else_if_blockContext):
-        self.create_scope()
-        self.visitChildren(ctx)
-        self.destroy_scope()
-
+    @ErrorManage
     def visitFor_loop_step(self, ctx: pseudoParser.For_loop_stepContext):
         self.create_scope()
+
+        start, end = self.visit(ctx.expr()[0]), self.visit(ctx.expr()[1])
+        step = Types.Int
+        if ctx.step: step = self.visit(ctx.step)
+        if (start, end, step) != (Types.Int, Types.Int, Types.Int):
+            raise CustomError(f"For loops need to have start, step and end to be integers")
+
+        new_var = Variable(ctx.IDENTIFIER().getText(), Types.Int)
+        self.current_branch.add_var(new_var)
         self.visitChildren(ctx)
         self.destroy_scope()
 
+
+    @ErrorManage
     def visitRepeat_until(self, ctx: pseudoParser.RecordContext):
         self.create_scope()
         self.visitChildren(ctx)
         self.destroy_scope()
 
+    @ErrorManage
     def visitWhile_loop(self, ctx: pseudoParser.While_loopContext):
         self.create_scope()
         self.visitChildren(ctx)
@@ -151,13 +181,6 @@ class SymbolTableVisitor(pseudoVisitor):
             fields[name] = _type
 
         self.symbol_table.add_type(Types.UserDefinedType(record_name, fields))
-
-    def visitArg(self, ctx: pseudoParser.ArgContext):
-        name = ctx.getText()
-
-        # ERROR, NEED TO PUT TYPE
-        self.symbol_table.add_var(Variable(name))
-        self.visitChildren(ctx)
 
     def visitReveal_type(self, ctx: pseudoParser.Reveal_typeContext):
         expr = self.visit(ctx.expr())
@@ -212,7 +235,7 @@ class SymbolTableVisitor(pseudoVisitor):
         _object = self.visit(ctx.expr()).getUnderlyingType()
         field_name = ctx.IDENTIFIER().getText()
 
-        @Operations.Unionize
+        @Util.Unionize
         def getField(_type):
             return_type = _type.getField(field_name)
             if return_type is None: raise CustomError(f"Type  {_type.getName()} does not have field {field_name}.")
@@ -225,10 +248,11 @@ class SymbolTableVisitor(pseudoVisitor):
 
     @ErrorManage
     def visitStat(self, ctx: pseudoParser.StatContext):
+        self.stack_trace.add_line(ctx.start.line, ctx.getText())
         return self.visitChildren(ctx)
 
     def visitArray_expr(self, ctx: pseudoParser.Array_exprContext):
-        expr_set = Types.remove_duplicates([self.visit(expression).getUnderlyingType() for expression in ctx.expr()])
+        expr_set = Util.remove_duplicates([self.visit(expression).getUnderlyingType() for expression in ctx.expr()])
         if len(expr_set) == 1:
             return Types.ArrayType(expr_set.pop())
         else:
@@ -242,8 +266,9 @@ class SymbolTableVisitor(pseudoVisitor):
             raise Errors.CustomError(
                 f"Indexing only supported with type Integer, not with type {second_expr.getName()}")
 
-        if first_expr.getUnderlyingType() == Types.String:
-            return Types.ReferenceType(Types.Char)  # type: ignore
-
         getElement = first_expr.getElement()
         return getElement
+
+    def visitReturn_stat(self, ctx: pseudoParser.Return_statContext):
+        expr = self.visit(ctx.expr())
+        self.current_branch.setReturnType(expr)

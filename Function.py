@@ -9,3 +9,6 @@ class Function:
 
     def getArgs(self):
         return self.ctx.arg()
+
+    def getArgsName(self):
+        return [arg.IDENTIFIER().getText() for arg in self.ctx.arg()]

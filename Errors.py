@@ -6,7 +6,7 @@ class TranslationError(Exception):
         pass
 
     def formatted_output_msg(self):
-        return f"At line {self.line}:\n{self.output_msg()}"
+        return f"Error At line {self.line}:\n{self.output_msg()}"
 
 
 class CustomError(TranslationError):

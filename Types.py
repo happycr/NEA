@@ -1,13 +1,8 @@
 import SymbolTable
 import Types
-import copy
-from gen.pseudoParser import pseudoParser
+
+from Util import remove_duplicates, Unionize
 import Errors
-
-
-def remove_duplicates(L):
-    newlist = [ii for n, ii in enumerate(L) if ii not in L[:n]]
-    return newlist
 
 
 class Type:
@@ -33,7 +28,15 @@ class Type:
         return self
 
     def getElement(self):
+        if self.getName() == "Char":
+            return ArrayType(Char).getElement()
         raise Errors.CustomError(f"Type {self.getName()} does not support indexing.")
+
+    def add_type(self, other_type):
+        if self == other_type:
+            return self
+        else:
+            return UnionType([self, other_type])
 
 
 class UnionType(Type):
@@ -45,11 +48,20 @@ class UnionType(Type):
             yield i
 
     def getName(self):
-        return "|".join((x.getName() for x in self.types_list))
+        return "(" + "|".join((x.getName() for x in self.types_list)) + ")"
 
     def add_type(self, _type: Type):
         for possible_type in _type:
-            self.types_list.add(possible_type)
+            if possible_type not in self.types_list:
+                self.types_list.append(possible_type)
+        return self
+
+    def getElement(self):
+        @Unionize
+        def inner(_type):
+            return _type.getElement()
+
+        return inner(self)
 
 
 class UserDefinedType(Type):
@@ -82,9 +94,9 @@ class ReferenceType(Type):
         if expr.getUnderlyingType() != self.type.getUnderlyingType():
             raise Errors.CustomError(f"Cannot asign value of type {expr.getName()} to type {self.getName()}")
 
-
     def getUnderlyingType(self):
         return self.type
+
 
 class FieldAccess(ReferenceType):
 
@@ -100,12 +112,14 @@ class FieldAccess(ReferenceType):
 
 
 class VariableReferenceType(Type):
-    def __init__(self, variable_name: str, symbol_table: SymbolTable.SymbolTable):
+    def __init__(self, variable_name: str, symbol_table: SymbolTable.SymbolTable, index: (int, int)):
         self.variable_name = variable_name
         self.symbol_table = symbol_table
+        self.index = index
+
 
     def getName(self):
-        return self.symbol_table.find_var(self.variable_name).type.getName() + "&"
+        return self.symbol_table.getVar(self.index).type.getUnderlyingType().getName() + "&"
 
     def __iter__(self):
         for i in self.getUnderlyingType():
@@ -115,10 +129,10 @@ class VariableReferenceType(Type):
         return self.getUnderlyingType().getField(name)
 
     def assign(self, expr):
-        self.symbol_table.find_var(self.variable_name).type = expr
+        self.symbol_table.getVar(self.index).assign(expr)
 
     def getUnderlyingType(self) -> Types.Type:
-        return self.symbol_table.find_var(self.variable_name).type  # type: ignore
+        return self.symbol_table.getVar(self.index).type.getUnderlyingType()  # type: ignore
 
     def getElement(self):
         def access_type():
@@ -139,15 +153,8 @@ class ArrayElementType(Type):
         return self.access_type().getName() + "&"
 
     def assign(self, expr):
-        _type = self.access_type()
-        if expr == _type:
-            pass
-        elif isinstance(_type, UnionType):
-            _type.add_type(expr)
-            self.set_type(_type)
-
-        else:
-            self.set_type(UnionType([_type, expr]))
+        _type: Types.Type = self.access_type()
+        return _type.add_type(expr)
 
     def getElement(self):
         def _access_type():
@@ -158,6 +165,7 @@ class ArrayElementType(Type):
             self.set_type(ArrayType(new_type))
 
         return ArrayElementType(_access_type, _set_type)
+
     def getUnderlyingType(self):
         return self.access_type()
 
@@ -177,6 +185,12 @@ class ArrayType(Type):
         return self.element_type == other.element_type
 
 
+class StringType(ArrayType):
+    def __init__(self):
+        super().__init__(Char)
+        self.name = "String"
+
+
 class ErrorType(Type):
     pass
 
@@ -188,6 +202,7 @@ class PrimitiveType(Type):
 Int = PrimitiveType("Integer")
 Real = PrimitiveType("Real")
 Bool = PrimitiveType("Bool")
-String = PrimitiveType("String")
 Char = PrimitiveType("Char")
-primitive_types = [Int, Real, Bool, String]
+none = PrimitiveType("None")
+String = StringType()
+primitive_types = [Int, Real, Bool, String, none]
