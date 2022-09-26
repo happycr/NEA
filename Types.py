@@ -33,10 +33,7 @@ class Type:
         raise Errors.CustomError(f"Type {self.getName()} does not support indexing.")
 
     def add_type(self, other_type):
-        if self == other_type:
-            return self
-        else:
-            return UnionType([self, other_type])
+        return UnionType([self, other_type])
 
 
 class UnionType(Type):
@@ -95,7 +92,7 @@ class ReferenceType(Type):
             raise Errors.CustomError(f"Cannot asign value of type {expr.getName()} to type {self.getName()}")
 
     def getUnderlyingType(self):
-        return self.type
+        return self.type.getUnderlyingType()
 
 
 class FieldAccess(ReferenceType):
@@ -112,14 +109,15 @@ class FieldAccess(ReferenceType):
 
 
 class VariableReferenceType(Type):
-    def __init__(self, variable_name: str, symbol_table: SymbolTable.SymbolTable, index: (int, int)):
+    def __init__(self, variable_name: str, symbol_table: SymbolTable.Branch, index: (int, int)):
         self.variable_name = variable_name
         self.symbol_table = symbol_table
         self.index = index
 
-
     def getName(self):
-        return self.symbol_table.getVar(self.index).type.getUnderlyingType().getName() + "&"
+        _type = self.symbol_table.getVar(self.index).type.getUnderlyingType()
+
+        return _type.getName() + "&"
 
     def __iter__(self):
         for i in self.getUnderlyingType():

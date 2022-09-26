@@ -34,17 +34,17 @@ class SymbolTableVisitor(pseudoVisitor):
         self.current_branch = self.symbol_table
 
     def create_scope(self) -> None:
-        self.symbol_table.create_scope()
+        self.current_branch.create_scope()
 
     def destroy_scope(self) -> None:
-        self.symbol_table.destroy_scope()
+        self.current_branch.destroy_scope()
 
     def visitVariable(self, ctx: pseudoParser.VariableContext) -> Types.Type:
         name = ctx.getText()
-        var = self.symbol_table.find_var(name)
-        index = self.symbol_table.getIndex(name)
+        var = self.current_branch.find_var(name)
+        index = self.current_branch.getIndex(name)
         if not var: raise VariableNotDefined(name)
-        return Types.VariableReferenceType(name, self.symbol_table, index)
+        return Types.VariableReferenceType(name, self.current_branch, index)
         # return_type = Types.String
 
     def visitSubroutineAtCallTime(self, ctx: pseudoParser.SubroutineContext):
@@ -92,7 +92,7 @@ class SymbolTableVisitor(pseudoVisitor):
             elif not variable:
                 self.current_branch.add_var(ConstVariable(name, expr))
             else:
-                variable.assign(expr)
+                variable.assign(expr.getUnderlyingType())
         else:
             lhs = self.visit(ctx.expr()[0])
             rhs = self.visit(ctx.expr()[1])
@@ -112,8 +112,15 @@ class SymbolTableVisitor(pseudoVisitor):
             branch = self.visit(block)
             self.current_branch = parent_branch
             branches.append(branch)
-        for branch in branches:
+        if ctx.else_block():
+            first_branch = branches[0]
+            first_branch.destroy_first(parent_branch)
+        else:
+            first_branch = branches[0]
+            first_branch.destroy(parent_branch)
+        for branch in branches[1:]:
             branch.destroy(parent_branch)
+
 
 
     @ErrorManage

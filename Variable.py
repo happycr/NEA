@@ -12,7 +12,7 @@ class Variable:
 
     def assign(self, _type):
         if isinstance(self.type, Types.VariableReferenceType):
-            self.type.assign(_type)
+            self.type.assign(_type.getUnderlyingType())
         else:
             self.type = _type
 
@@ -25,7 +25,7 @@ class Variable:
 
 class BranchVariable(Variable):
     def __init__(self, name: str, _type):
-        super().__init__(name, _type)
+        super().__init__(name, _type.getUnderlyingType())
 
     def assign(self, _type):
         if isinstance(self.type, Types.VariableReferenceType):
@@ -41,6 +41,10 @@ class BranchVariable(Variable):
 
     def destroy(self, parent_branch):
         parent_branch.add_branch_variable(self.name, self.type)
+
+    def destroy_first(self, parent_branch):
+        parent_branch.add_branch_variable_first(self.name, self.type)
+
 
 
 

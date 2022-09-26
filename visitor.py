@@ -73,7 +73,7 @@ class Visitor(pseudoVisitor, GenericVisitor):
         return f"[{self.visit_list(ctx.expr(), sep=', ')}]"
 
     def visitElse_block(self, ctx: pseudoParser.Else_blockContext):
-        header = "else:\n"
+        header = self.indent("else:\n")
         self.create_scope()
         body = self.visit_list(ctx.block())
         if not body: body = self.indent("pass")
@@ -81,7 +81,7 @@ class Visitor(pseudoVisitor, GenericVisitor):
         return header + body
 
     def visitElse_if_block(self, ctx: pseudoParser.Else_if_blockContext):
-        header = f"elif {self.visit(ctx.expr())}:\n"
+        header = self.indent(f"elif {self.visit(ctx.expr())}:\n")
         self.create_scope()
         body = self.visit_list(ctx.block())
         if not body: body = self.indent("pass")
@@ -197,4 +197,6 @@ class Visitor(pseudoVisitor, GenericVisitor):
         return ""
 
     def visitCondition_sequence(self, ctx:pseudoParser.Condition_sequenceContext):
-        return self.visit_list(ctx.children)
+        control_blocks = self.visit_list(ctx.children)
+        return control_blocks
+

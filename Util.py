@@ -17,7 +17,14 @@ def CartesianProduct(*args):
     for i in itertools.product(*args):
         yield i
 
+def remove_duplicates(type_list):
+    newlist = []
+    for _type in type_list:
+        _type = _type.getUnderlyingType()
+        for flat_type in _type:
+            if flat_type not in newlist:
+                newlist.append(flat_type)
+    return newlist
 
-def remove_duplicates(L):
-    newlist = [ii for n, ii in enumerate(L) if ii not in L[:n]]
+
     return newlist

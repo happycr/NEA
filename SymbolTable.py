@@ -43,7 +43,12 @@ class SymbolTable:
 
     def add_branch_variable(self, name: str, _type):
         index = self.getIndex(name)
-        self.getVar(index).assign(self.getVar(index).getType().add_type(_type))
+        self.getVar(index).assign(self.getVar(index).getType().add_type(_type.getUnderlyingType()))
+    def add_branch_variable_first(self, name: str, _type):
+        variable = self.find_var(name)
+        index = self.getIndex(name)
+        self.getVar(index).assign(_type)
+
 
     def find_func(self, name: str) -> None | Function:
         return self.functions.get(name)
@@ -150,6 +155,23 @@ class Branch:
         for variable in branch_variables:
             variable.destroy(parent_branch)
 
+    def destroy_first(self, parent_branch) -> None:
+        branch_variables = []
+        for scope in self.scopes:
+            for variable in scope.variables:
+                if isinstance(variable, BranchVariable):
+                    branch_variables.append(variable)
+        for variable in branch_variables:
+            variable.destroy_first(parent_branch)
+
+
     def add_branch_variable(self, name: str, _type):
         variable = self.find_var(name)
-        variable.type.add_type(_type)
+        index = self.getIndex(name)
+        self.getVar(index).assign(self.getVar(index).getType().add_type(_type.getUnderlyingType()))
+
+    def add_branch_variable_first(self, name: str, _type):
+        variable = self.find_var(name)
+        index = self.getIndex(name)
+        self.getVar(index).assign(_type)
+
