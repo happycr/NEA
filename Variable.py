@@ -48,10 +48,9 @@ class BranchVariable(Variable):
 
 
 
-class ConstVariable:
+class ConstVariable(Variable):
     def __init__(self, name: str, _type):
-        self.name = name
-        self.type = Types.ConstType(_type)
+        super().__init__(name, Types.ConstType(_type))
 
     def assign(self, _type):
         raise Errors.CustomError(f"Cannot assign value to const variable {self.name}")

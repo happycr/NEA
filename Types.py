@@ -15,21 +15,19 @@ class Type:
     def __eq__(self, other):
         return self.getName() == other.getName()
 
-    def getField(self, name):
+    def getField(self, name: str):
         pass
 
     def getName(self):
         return self.name
 
-    def assign(self, expr):
+    def assign(self, expr) -> None:
         raise Errors.CustomError(f"Type {self.getName()} is not assignable.")
 
     def getUnderlyingType(self):
         return self
 
     def getElement(self):
-        if self.getName() == "Char":
-            return ArrayType(Char).getElement()
         raise Errors.CustomError(f"Type {self.getName()} does not support indexing.")
 
     def add_type(self, other_type):
@@ -38,18 +36,26 @@ class Type:
 
 class UnionType(Type):
     def __init__(self, types_list):
-        self.types_list = remove_duplicates(types_list)
+        self.types_list = []
+        for _type in types_list:
+            self.add_type(_type)
 
     def __iter__(self):
         for i in self.types_list:
             yield i
 
     def getName(self):
-        return "(" + "|".join((x.getName() for x in self.types_list)) + ")"
+        return "|".join((x.getName() for x in self.types_list))
 
     def add_type(self, _type: Type):
         for possible_type in _type:
-            if possible_type not in self.types_list:
+            for i in self.types_list:
+                if i.getUnderlyingType() == possible_type.getUnderlyingType():
+                    break
+                if isinstance(possible_type, ArrayType) and isinstance(i, ArrayType):
+                    i.element_type = i.element_type.add_type(possible_type.element_type)
+                    break
+            else:
                 self.types_list.append(possible_type)
         return self
 
@@ -73,6 +79,7 @@ class UserDefinedType(Type):
 class ConstType(Type):
     def __init__(self, _type: Types.Type):
         self.name = "CONST " + _type.getName()
+        self._type = _type
 
     def getField(self, name):
         inner_type = self._type.getField(name)
@@ -83,66 +90,6 @@ class ConstType(Type):
 
 
 class ReferenceType(Type):
-    def __init__(self, _type: Types.Type):
-        self.name = _type.getName() + "&"
-        self.type = _type
-
-    def assign(self, expr):
-        if expr.getUnderlyingType() != self.type.getUnderlyingType():
-            raise Errors.CustomError(f"Cannot asign value of type {expr.getName()} to type {self.getName()}")
-
-    def getUnderlyingType(self):
-        return self.type.getUnderlyingType()
-
-
-class FieldAccess(ReferenceType):
-
-    def __init__(self, field_name: str, _type: Type):
-        super().__init__(_type)
-        self.field_name = field_name
-
-    def assign(self, expr: Type):
-        if expr != self.type:
-            raise Errors.CustomError(
-                f"Cannot assign value of type {expr.getName()} to field {self.field_name} which is of "
-                f"type {self.type.getName()}")
-
-
-class VariableReferenceType(Type):
-    def __init__(self, variable_name: str, symbol_table: SymbolTable.Branch, index: (int, int)):
-        self.variable_name = variable_name
-        self.symbol_table = symbol_table
-        self.index = index
-
-    def getName(self):
-        _type = self.symbol_table.getVar(self.index).type.getUnderlyingType()
-
-        return _type.getName() + "&"
-
-    def __iter__(self):
-        for i in self.getUnderlyingType():
-            yield i
-
-    def getField(self, name):
-        return self.getUnderlyingType().getField(name)
-
-    def assign(self, expr):
-        self.symbol_table.getVar(self.index).assign(expr)
-
-    def getUnderlyingType(self) -> Types.Type:
-        return self.symbol_table.getVar(self.index).type.getUnderlyingType()  # type: ignore
-
-    def getElement(self):
-        def access_type():
-            return self.getUnderlyingType().getElement()
-
-        def _set_type(new_type):
-            self.assign(ArrayType(new_type))
-
-        return ArrayElementType(access_type, _set_type)
-
-
-class ArrayElementType(Type):
     def __init__(self, access_type, set_type):
         self.access_type = access_type
         self.set_type = set_type
@@ -150,22 +97,68 @@ class ArrayElementType(Type):
     def getName(self):
         return self.access_type().getName() + "&"
 
-    def assign(self, expr):
-        _type: Types.Type = self.access_type()
-        return _type.add_type(expr)
-
     def getElement(self):
-        def _access_type():
-            _type = self.access_type()
-            return _type.getElement()
+        def new_access_type():
+            return self.access_type().getElement()
 
-        def _set_type(new_type):
-            self.set_type(ArrayType(new_type))
+        def new_set_type(_type):
+            self.set_type(ArrayType(_type))
 
-        return ArrayElementType(_access_type, _set_type)
+        return ArrayElementType(new_access_type, new_set_type)
 
     def getUnderlyingType(self):
-        return self.access_type()
+        return self.access_type().getUnderlyingType()
+
+    def getField(self, name: str):
+        return self.access_type().getUnderlyingType().getField(name)
+
+    def __iter__(self):
+        for i in self.getUnderlyingType():
+            yield i
+
+
+class FieldAccess(ReferenceType):
+
+    def __init__(self, field_name: str, _type: Type):
+        self.field_name = field_name
+
+        def access_type():
+            return _type
+
+        def set_type(new_type):
+            if new_type != _type:
+                raise Errors.CustomError(
+                    f"Cannot assign value of type {new_type.getName()} to field {self.field_name} which is of "
+                    f"type {self.access_type().getName()}")
+
+        super().__init__(access_type, set_type)
+
+    def assign(self, expr):
+        self.set_type(expr)
+
+
+class VariableReferenceType(ReferenceType):
+    def __init__(self, variable_name: str, symbol_table: SymbolTable.Branch, index: (int, int)):
+        self.symbol_table = symbol_table
+        self.index = index
+        def access_type():
+            return self.symbol_table.getVar(self.index).type
+
+        def set_type(new_type):
+            self.symbol_table.getVar(self.index).type = new_type
+        super().__init__(access_type, set_type)
+
+    def assign(self, expr):
+        self.symbol_table.getVar(self.index).assign(expr)
+
+
+class ArrayElementType(ReferenceType):
+    def __init__(self, access_type, set_type):
+        super().__init__(access_type, set_type)
+
+    def assign(self, expr):
+        _type: Types.Type = self.access_type()
+        self.set_type(_type.add_type(expr))
 
 
 class ArrayType(Type):
@@ -187,10 +180,6 @@ class StringType(ArrayType):
     def __init__(self):
         super().__init__(Char)
         self.name = "String"
-
-
-class ErrorType(Type):
-    pass
 
 
 class PrimitiveType(Type):

@@ -13,6 +13,8 @@ from Function import Function
 import Types
 from antlr4 import *
 import copy
+
+
 def ErrorManage(func: Callable[[pseudoVisitor, ParserRuleContext], Any]):
     def inner(self, ctx):
         try:
@@ -82,6 +84,7 @@ class SymbolTableVisitor(pseudoVisitor):
                 raise CustomError(f"Wrong number arguments to initialize type {_type.getName()}")
         return _type
 
+    @ErrorManage
     def visitVariable_assignment(self, ctx: pseudoParser.Variable_assignmentContext) -> None:
         if ctx.IDENTIFIER():
             name = ctx.IDENTIFIER().getText()
@@ -91,6 +94,8 @@ class SymbolTableVisitor(pseudoVisitor):
                 self.current_branch.add_var(Variable(name, expr))
             elif not variable:
                 self.current_branch.add_var(ConstVariable(name, expr))
+            elif variable and ctx.CONSTANT():
+                raise Errors.CustomError(f"Cannot redefine the constant variable {name}.")
             else:
                 variable.assign(expr.getUnderlyingType())
         else:
@@ -105,10 +110,10 @@ class SymbolTableVisitor(pseudoVisitor):
         if func: raise FunctionAlreadyDefined(name)
         self.symbol_table.add_func(Function(ctx))
 
-    def visitCondition_sequence(self, ctx:pseudoParser.Condition_sequenceContext):
+    def visitCondition_sequence(self, ctx: pseudoParser.Condition_sequenceContext):
         parent_branch = self.current_branch
         branches = []
-        for block in ctx.getChildren():
+        for block in list(ctx.getChildren())[:-1]:
             branch = self.visit(block)
             self.current_branch = parent_branch
             branches.append(branch)
@@ -121,14 +126,11 @@ class SymbolTableVisitor(pseudoVisitor):
         for branch in branches[1:]:
             branch.destroy(parent_branch)
 
-
-
     @ErrorManage
     def visitIf_block(self, ctx: pseudoParser.If_blockContext) -> Branch:
         self.current_branch = Branch(self.current_branch)
         self.visitChildren(ctx)
         return self.current_branch
-
 
     def visitElse_block(self, ctx: pseudoParser.Else_blockContext):
         self.current_branch = Branch(self.current_branch)
@@ -144,6 +146,9 @@ class SymbolTableVisitor(pseudoVisitor):
     @ErrorManage
     def visitFor_loop(self, ctx: pseudoParser.For_loopContext):
         self.create_scope()
+        expr = self.visit(ctx.expr())
+        if not isinstance(expr, Types.ArrayType):
+            raise CustomError(f"Cannot iterate on non iterable type {expr.getUnderlyingType().getName()}")
         self.visitChildren(ctx)
         self.destroy_scope()
 
@@ -151,9 +156,9 @@ class SymbolTableVisitor(pseudoVisitor):
     def visitFor_loop_step(self, ctx: pseudoParser.For_loop_stepContext):
         self.create_scope()
 
-        start, end = self.visit(ctx.expr()[0]), self.visit(ctx.expr()[1])
+        start, end = self.visit(ctx.expr()[0]).getUnderlyingType(), self.visit(ctx.expr()[1]).getUnderlyingType()
         step = Types.Int
-        if ctx.step: step = self.visit(ctx.step)
+        if ctx.step: step = self.visit(ctx.step).getUnderlyingType()
         if (start, end, step) != (Types.Int, Types.Int, Types.Int):
             raise CustomError(f"For loops need to have start, step and end to be integers")
 
@@ -161,7 +166,6 @@ class SymbolTableVisitor(pseudoVisitor):
         self.current_branch.add_var(new_var)
         self.visitChildren(ctx)
         self.destroy_scope()
-
 
     @ErrorManage
     def visitRepeat_until(self, ctx: pseudoParser.RecordContext):
@@ -243,7 +247,7 @@ class SymbolTableVisitor(pseudoVisitor):
         field_name = ctx.IDENTIFIER().getText()
 
         @Util.Unionize
-        def getField(_type):
+        def getField(_type) -> Types.Type:
             return_type = _type.getField(field_name)
             if return_type is None: raise CustomError(f"Type  {_type.getName()} does not have field {field_name}.")
             return return_type
@@ -259,11 +263,11 @@ class SymbolTableVisitor(pseudoVisitor):
         return self.visitChildren(ctx)
 
     def visitArray_expr(self, ctx: pseudoParser.Array_exprContext):
-        expr_set = Util.remove_duplicates([self.visit(expression).getUnderlyingType() for expression in ctx.expr()])
-        if len(expr_set) == 1:
-            return Types.ArrayType(expr_set.pop())
+        expressions = [self.visit(expression).getUnderlyingType() for expression in ctx.expr()]
+        if len(expressions) == 1:
+            return Types.ArrayType(expressions.pop())
         else:
-            return Types.ArrayType(Types.UnionType(expr_set))
+            return Types.ArrayType(Types.UnionType(expressions))
 
     def visitIndex_expr(self, ctx: pseudoParser.Index_exprContext):
         first_expr = self.visit(ctx.expr()[0])
@@ -279,3 +283,6 @@ class SymbolTableVisitor(pseudoVisitor):
     def visitReturn_stat(self, ctx: pseudoParser.Return_statContext):
         expr = self.visit(ctx.expr())
         self.current_branch.setReturnType(expr)
+
+    def visitUser_input(self, ctx: pseudoParser.User_inputContext):
+        return Types.String

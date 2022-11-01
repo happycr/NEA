@@ -5,6 +5,7 @@ from Util import Unionize
 
 @Unionize
 def add(x: Types.Type, y: Types.Type) -> Types.Type:  # type: ignore
+    """Returns the resultant types from adding two types together."""
     match (x, y):
         case (Types.Int, Types.Int): return Types.Int
         case (Types.Int, Types.Real): return Types.Real
@@ -16,7 +17,7 @@ def add(x: Types.Type, y: Types.Type) -> Types.Type:  # type: ignore
 
 @Unionize
 def multiply(x: Types.Type, y: Types.Type) -> Types.Type:  # type: ignore
-    match (x,y):
+    match (x, y):
         case (Types.Int, Types.Int): return Types.Int
         case (Types.Int, Types.Real): return Types.Real
         case (Types.Real, Types.Int): return Types.Real
@@ -65,19 +66,19 @@ def compare(x: Types.Type, y: Types.Type) -> Types.Type:
         case(_, _): raise CustomError(f"Cannot compare objects of type {x.name} and {y.name}")
 
 @Unionize
-def bool_operation(x: Types.Type, y: Types.Type):
+def bool_operation(x: Types.Type, y: Types.Type) -> Types.Type:
     match (x,y):
         case(Types.Bool, Types.Bool): return Types.Bool
         case(_, _): raise CustomError(f"Cannot use a logical boolean operation on objects of type {x.name} and {y.name}")
 
 @Unionize
-def Not(x: Types.Type):
+def Not(x: Types.Type) -> Types.Type:
     match x:
         case(Types.Bool): return Types.Bool
         case(_): raise CustomError(f"Cannot use not on object of type {x.name}")
 
 @Unionize
-def minus(x: Types.Type):
+def minus(x: Types.Type) -> Types.Type:
     match x:
         case (Types.Real): return Types.Real
         case (Types.Int): return Types.Int

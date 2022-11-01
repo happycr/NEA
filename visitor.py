@@ -20,9 +20,11 @@ class Visitor(pseudoVisitor, GenericVisitor):
         return "input()"
 
     def visitBinary_expr(self, ctx: pseudoParser.Binary_exprContext) -> str:
-        operator = ctx.op.text
+        operator = ctx.op.text.lower()
         if operator == '=':
             operator = '=='
+        if operator == '≠':
+            operator = '!='
 
         return self.visit(ctx.expr()[0]) + " " + operator + " " + self.visit(ctx.expr()[1])
 
@@ -43,6 +45,7 @@ class Visitor(pseudoVisitor, GenericVisitor):
 
     def visitArg(self, ctx: pseudoParser.ArgContext) -> str:
         return ctx.getText()
+
 
     def visitSubroutine(self, ctx: pseudoParser.SubroutineContext):
         name = ctx.IDENTIFIER().getText()
@@ -127,7 +130,7 @@ class Visitor(pseudoVisitor, GenericVisitor):
         return self.indent(f"self.{name} = {name}\n")
 
     def visitOutput(self, ctx: pseudoParser.OutputContext):
-        return f"print({self.visit(ctx.expr()[0])})"
+        return f"print({self.visit_list(ctx.expr(), sep=',')})"
 
     def visitFunction_call(self, ctx: pseudoParser.Function_callContext):
         function_call_name = ctx.IDENTIFIER().getText()
@@ -171,7 +174,7 @@ class Visitor(pseudoVisitor, GenericVisitor):
         return '(' + self.visit(ctx.expr()) + ')'
 
     def visitUnary_expr(self, ctx: pseudoParser.Unary_exprContext):
-        return ctx.op.text + self.visit(ctx.expr())
+        return ctx.op.text.lower() + self.visit(ctx.expr())
 
     def visitRepeat_until(self, ctx: pseudoParser.Repeat_untilContext):
         condition = self.visit(ctx.expr())
@@ -189,14 +192,10 @@ class Visitor(pseudoVisitor, GenericVisitor):
     def visitFunction_call_expr(self, ctx: pseudoParser.Function_call_exprContext):
         return self.visitChild(ctx)
 
-    def visitChild(self, node):
-        child = node.getChild(0)
-        return self.visit(child)
-
     def visitReveal_type(self, ctx: pseudoParser.Reveal_typeContext):
         return ""
 
     def visitCondition_sequence(self, ctx:pseudoParser.Condition_sequenceContext):
-        control_blocks = self.visit_list(ctx.children)
+        control_blocks = self.visit_list(ctx.children[:-1])
         return control_blocks
 

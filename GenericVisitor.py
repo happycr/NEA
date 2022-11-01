@@ -4,15 +4,11 @@ from SymbolTableVisitor import SymbolTableVisitor
 class GenericVisitor:
     def __init__(self):
         self.__indent = 0
-        self.symbol_table_visitor = SymbolTableVisitor()
 
     def create_scope(self, indent=4) -> None:
-
-        self.symbol_table_visitor.create_scope()
         self.__indent += indent
 
     def destroy_scope(self, indent=4) -> None:
-        self.symbol_table_visitor.destroy_scope()
         self.__indent -= indent
 
     def indent(self, string) -> str:
