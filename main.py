@@ -1,30 +1,44 @@
-# This is a sample Python script.
-import Types
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
 from IO import IO
-from FrontEnd import FrontEnd
-from SymbolTableVisitor import SymbolTableVisitor
-from visitor import Visitor
+from Frontend import Frontend
+from TypeChecker import TypeChecker
+import Translator
 from Errors import *
-from Operations import add
-from Types import *
+import sys
+
+
 def main():
-    stream = IO.get_stream()
+    argv = sys.argv
+    if len(argv) != 2:
+        print("Wrong number of arguments. Need a filename or use -sh option.")
+        sys.exit(1)
+    io = IO(argv[1])
+    # Get input stream from the user
+    stream = io.get_stream()
     try:
-        tree = FrontEnd.get_tree(stream)
-        symbol_table_visitor = SymbolTableVisitor()
-        symbol_table_visitor.visit(tree)
-        symbol_table = symbol_table_visitor.symbol_table
-        IO.write(Visitor().visit(tree))
+        # Get AST from front end class
+        tree = Frontend.get_tree(stream)
 
+        # Create type checker visitor object
+        type_checker = TypeChecker()
+        # Check for any type errors.
+        type_checker.visit(tree)
+        # Create translator visitor object
+        _translator = Translator.Translator()
+
+        # Get translator python text
+        python_text = _translator.visit(tree)
+
+        # Output python text
+        io.write(python_text)
+    except SyntaxErrorClass:
+        # An error message has already been printed to the console by BailErrorListener.
+        # No need to do anything but terminate the program.
+        pass
+    # Deal with type errors.
     except TranslationError as e:
-        print(e.formatted_output_msg())
+        # Print error message to console
+        print(e.formatted_output_msg(), file = sys.stderr)
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     main()
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/

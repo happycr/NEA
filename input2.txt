@@ -1,0 +1,19 @@
+# An example program to print primes from 1 to 50
+
+SUBROUTINE isPrime(n) 
+   FOR i <- 2 TO n - 1
+       IF n MOD i = 0 THEN
+           RETURN False
+       ENDIF
+   ENDFOR
+   RETURN True
+ENDSUBROUTINE
+
+number <- 2
+
+REPEAT
+   IF isPrime(number) THEN
+       OUTPUT number
+   ENDIF
+   number <- number + 1
+UNTIL number > 50

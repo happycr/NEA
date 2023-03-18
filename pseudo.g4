@@ -3,7 +3,7 @@ options {
   language = Python3;
 }
 prog: (block | record | subroutine)* ;
-block:  repeat_until | while_loop |for_loop_step | for_loop| condition_sequence | stat;
+block:  repeat_until | while_loop |for_loop_step | for_loop | condition_sequence | stat;
 
 repeat_until: 'REPEAT' block* 'UNTIL' expr;
 while_loop: 'WHILE' expr block* 'ENDWHILE';
@@ -25,12 +25,12 @@ function_call: IDENTIFIER '(' (expr (',' expr)*)? ')';
 output: 'OUTPUT' (expr (',' expr)*)? ;
 COMMENT : '#' ~('\r'|'\n')* -> skip ;
 variable_assignment: ((CONSTANT? IDENTIFIER) | expr) '<-' expr ;
-expr: op=  ('NOT' | '-') expr  #unary_expr
+expr: expr '[' expr ']' #index_expr
+    | op=  ('NOT' | '-') expr  #unary_expr
     | expr op= ('MOD' | 'DIV' | '*' | '/') expr #binary_expr
     | expr op = ('+' | '-') expr #binary_expr
     | expr op = ('<' | '>'| '=' | '≠' | '≤' | '≥') expr #binary_expr
     | expr op = ('AND' | 'OR')  expr #binary_expr
-    | expr '[' expr ']' #index_expr
     | '(' expr ')' #parenthesis_expr
     | '[' expr? (',' expr)* ']' #array_expr
     | function_call #function_call_expr

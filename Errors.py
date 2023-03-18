@@ -1,54 +1,26 @@
+import StackTrace
+
+"""
+Syntax error class. 
+"""
+
+
+class SyntaxErrorClass(Exception):
+    pass
+
+
+"""
+Translation error class. Contains a stack trace, and a custom message describing the error.
+"""
+
+
 class TranslationError(Exception):
-    def __init__(self):
-        self.line = None
-
-    def output_msg(self):
-        pass
-
-    def formatted_output_msg(self):
-        return f"Error At line {self.line}:\n{self.output_msg()}"
-
-
-class CustomError(TranslationError):
     def __init__(self, msg):
-        super().__init__()
-        self.msg = msg
+        self.__stack_trace = StackTrace.StackTrace()
 
-    def output_msg(self):
-        return self.msg
+        # Error message field.
+        self.__msg = msg
 
-
-class VariableNotDefined(TranslationError):
-    def __init__(self, name):
-        super().__init__()
-        self.name = name
-
-    def output_msg(self):
-        return f"Variable {self.name} not defined"
-
-
-class FunctionNotDefined(TranslationError):
-    def __init__(self, name):
-        super().__init__()
-        self.name = name
-
-    def output_msg(self):
-        return f"Function {self.name} not defined"
-
-
-class WrongNumberOfArguments(TranslationError):
-    def __init__(self, ctx):
-        super().__init__()
-        self.ctx = ctx
-
-    def output_msg(self):
-        return f"Wrong number of arguments for function {self.ctx.IDENTIFIER().getText()}"
-
-
-class FunctionAlreadyDefined(TranslationError):
-    def __init__(self, name):
-        super().__init__()
-        self.name = name
-
-    def output_msg(self):
-        return f"Function {self.name} already defined"
+    # Method to get a message describing the error.
+    def formatted_output_msg(self):
+        return self.__stack_trace.getText() + f"\nError: {self.__msg}"

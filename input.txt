@@ -1,0 +1,21 @@
+# An example program where a running total is kept, which the user can repeatedly multiply or MOD.
+
+result <- 1
+
+REPEAT
+   operation <- USERINPUT
+   operand <-USERINPUT
+   
+   IF operation = "*" THEN
+       result <- result * Real(operand)  
+   ELSE IF operation = "MOD" THEN
+        result <- Integer(result) MOD Integer(operand) 
+   ELSE
+       OUTPUT "Invalid Operation Entered"
+   ENDIF
+
+   OUTPUT result
+   quit <- USERINPUT
+   
+
+UNTIL quit = "quit"
